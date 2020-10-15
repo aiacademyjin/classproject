@@ -21,6 +21,12 @@ public class FruitSalesMain1 {
 		FruitBuyer buyer = new FruitBuyer(10000, 0);
 		
 		
+//		seller.myMoney += 1500;
+//		buyer.myMoney -= 1500;
+//		
+//		seller.numOfApple -= 2;
+//		buyer.numOfapple =+ 1;
+		
 		
 		// 사과를 구매 : 3000 지불
 		buyer.buyApple(seller, 3000);

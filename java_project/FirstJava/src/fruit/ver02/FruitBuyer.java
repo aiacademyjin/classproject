@@ -13,8 +13,8 @@ public class FruitBuyer {
 	
 	// 수정 : 2020.10.08, 변수의 초기화 코드 생략
 	// 구매자의 소유 금액, 소유한 사과의 개수
-	int myMoney;		// 구매자의 보유 금액
-	int numOfapple;		// 보유한 사과의 개수
+	private int myMoney;		// 구매자의 보유 금액
+	private int numOfapple;		// 보유한 사과의 개수
 	
 	// 기능 : 사과 구매, 현재 상태(금액, 사과의 개수) 값을 출력
 	// 사과를 구매
