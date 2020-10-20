@@ -38,7 +38,7 @@ public class FriendInfoHandler {
 		
 		// 인스턴스를 생성해서 저장
 		// 인스턴스 생성 : 고교 친구와 대학 친구가 다르다
-		if(choice==1) {
+		if(choice==Menu.INSERT_HIGH) {
 			// 고교 친구 데이터 받고 -> 인스턴스 생성 -> 배열에 저장
 			System.out.println("직업을 입력해주세요 >> ");
 			String work = sc.nextLine();

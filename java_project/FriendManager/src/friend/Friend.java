@@ -1,6 +1,6 @@
 package friend;
 
-public class Friend {
+public abstract class Friend {
 	
 	private String name;		// 친구의 이름
 	private String phoneNumber;	// 전화번호
@@ -34,8 +34,16 @@ public class Friend {
 	}
 	
 	// 오버라이딩 : 비어 있는 처리부를 기능을 추가
-	public void showBasicInfo() {
-		
-	}
+//	public void showBasicInfo() {
+//		
+//	}
+	public abstract void showBasicInfo();
 
 }
+
+
+
+
+
+
+
