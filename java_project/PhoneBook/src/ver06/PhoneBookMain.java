@@ -1,12 +1,14 @@
 package ver06;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.InputMismatchException;
 
 import ver03.Util;
 
 public class PhoneBookMain implements Util {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException, IOException {
 		
 		//PhoneBookManager manager = new PhoneBookManager(10);
 		PhoneBookManager manager = PhoneBookManager.getInstance();
@@ -27,7 +29,7 @@ public class PhoneBookMain implements Util {
 			
 				select = SC.nextInt();
 			
-				if(!(select>0 && select<6)) {
+				if(!(select>0 && select<10)) {
 					//System.out.println("메뉴의 선택이 옳바르지 않습니다.\n다시 선택해주세요.");
 					//Exception e = new Exception("잘못된 메뉴 입력");
 					BadInputException e = new BadInputException(String.valueOf(select));
@@ -59,16 +61,13 @@ public class PhoneBookMain implements Util {
 			case Menu.EXIT:
 				System.out.println("프로그램을 종료합니다. ");
 				return;
-			}
-			
-			
-			
-			
-		}
-		
-		
-		
+			case 8:
+				manager.save();
+				break;
 
+			}
+		}
 	}
+	
 
 }

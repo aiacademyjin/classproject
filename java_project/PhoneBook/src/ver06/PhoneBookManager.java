@@ -1,5 +1,12 @@
 package ver06;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
@@ -24,6 +31,13 @@ public class PhoneBookManager implements Util {
 		//cnt = 0;
 		// List<PhoneInfor> 초기화
 		pBook = new ArrayList<PhoneInfor>();
+		
+		try {
+			load();
+		} catch (ClassNotFoundException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	// 내부에서 인스터스 생성
@@ -231,6 +245,22 @@ public class PhoneBookManager implements Util {
 		for(int i=0; i<pBook.size() ; i++) {
 			pBook.get(i).showInfor();
 			System.out.println("--------------------");
+		}
+	}
+	
+
+	public void save() throws FileNotFoundException, IOException {
+		ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("phoneBook.ser"));
+		out.writeObject(pBook);		
+	}
+	
+	public void load() throws FileNotFoundException, IOException, ClassNotFoundException {
+		
+		File file = new File("phoneBook.ser");
+		
+		if(file.exists()) {
+			ObjectInputStream in = new ObjectInputStream(new FileInputStream("phoneBook.ser"));
+			pBook = (List<PhoneInfor>) in.readObject();
 		}
 	}
 	
