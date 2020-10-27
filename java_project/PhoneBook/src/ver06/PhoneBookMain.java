@@ -61,9 +61,6 @@ public class PhoneBookMain implements Util {
 			case Menu.EXIT:
 				System.out.println("프로그램을 종료합니다. ");
 				return;
-			case 8:
-				manager.save();
-				break;
 
 			}
 		}

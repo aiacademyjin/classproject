@@ -1,8 +1,6 @@
 package ver06;
 
-import java.io.Serializable;
-
-public interface Infor extends Serializable {
+public interface Infor {
 	void showInfor();
 	void showBasicInfor();
 }

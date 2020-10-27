@@ -31,13 +31,7 @@ public class PhoneBookManager implements Util {
 		//cnt = 0;
 		// List<PhoneInfor> 초기화
 		pBook = new ArrayList<PhoneInfor>();
-		
-		try {
-			load();
-		} catch (ClassNotFoundException | IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+			
 	}
 	
 	// 내부에서 인스터스 생성
@@ -245,22 +239,6 @@ public class PhoneBookManager implements Util {
 		for(int i=0; i<pBook.size() ; i++) {
 			pBook.get(i).showInfor();
 			System.out.println("--------------------");
-		}
-	}
-	
-
-	public void save() throws FileNotFoundException, IOException {
-		ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("phoneBook.ser"));
-		out.writeObject(pBook);		
-	}
-	
-	public void load() throws FileNotFoundException, IOException, ClassNotFoundException {
-		
-		File file = new File("phoneBook.ser");
-		
-		if(file.exists()) {
-			ObjectInputStream in = new ObjectInputStream(new FileInputStream("phoneBook.ser"));
-			pBook = (List<PhoneInfor>) in.readObject();
 		}
 	}
 	
