@@ -8,7 +8,7 @@ public class Sum {
 		num=0;
 	}
 	
-	void addNum(int n) {
+ 	synchronized void addNum(int n) {
 		num+=n;
 	}
 	
