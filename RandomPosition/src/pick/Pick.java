@@ -18,13 +18,19 @@ public class Pick {
 			memberList.add(members[i]);
 		}
 
-		Collections.shuffle(memberList);
+		for (int i = 0; i < 1000; i++) {
+			Collections.shuffle(memberList);
+		}
 
 		for (String name : memberList) {
-			System.out.print(name+" ");
+			//System.out.print(name + " ");
 		}
-		System.out.println();
+		System.out.println("자리 배치 : 개인간의 합의에 의한 자리변경은 가능합니다.");
 
+		displayPicker(memberList, true, 1000);
+	}
+
+	public static void displayPicker(ArrayList<String> memberList, boolean chk, int delay) {
 		String[][] position = new String[6][];
 		position[0] = new String[2];
 		position[1] = new String[4];
@@ -42,14 +48,21 @@ public class Pick {
 				position[i][j] = memberList.get(index++);
 			}
 		}
-		
+
 		for (String[] pos : position) {
 			for (String name : pos) {
+				if (chk) {
+					name = name.substring(0, 1) + "**";
+				}
+				try {
+					Thread.sleep(delay);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
 				System.out.print(name + "\t");
 			}
 			System.out.println();
 		}
-
 	}
 
 }
