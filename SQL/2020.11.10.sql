@@ -236,7 +236,8 @@ group by job
 order by job
 ;
 
-
+select * from tab;
+desc book;
 
 
 
