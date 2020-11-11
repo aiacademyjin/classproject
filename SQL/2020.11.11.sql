@@ -234,6 +234,67 @@ group by o.custid
 ;
 
 
+select custid, name
+from customer
+where custid<=2
+;
+
+-- 인라인 뷰 : from 절 이후에 들어가는 서브 쿼리, 가상 테이블, rownum 이 새롭게 생성 
+select c.name, sum(o.saleprice), avg(o.saleprice)
+from orders o, (
+        select custid, name
+        from customer
+        where custid<=2
+        ) c
+where o.custid=c.custid
+group by c.name
+;
+
+-- 평균 주문금액 이하의
+-- 주문에 대해서 주문번호와 금액을 보이시오.
+select avg(saleprice) from orders;
+
+select orderid, saleprice
+from orders
+where saleprice <= (select avg(saleprice) from orders)-- 평균 주문 금액
+;
+
+-- 각 고객의 평균 주문금액보다 큰 금액의 주문 내역에 대해서 주문번호, 고객번호, 금액을 보이시오.
+select avg(saleprice) from orders where custid=4;
+
+select orderid, o1.custid,  saleprice
+from orders o1
+where saleprice > 
+(select avg(saleprice) from orders o2 where o2.custid=o1.custid)-- custid=1 이면 1번 고객의 평균과 비교 해서 큰 주문 금액만 출력 
+;
+
+select * from customer where address like '%대한민국%';
+
+-- 대한민국에 거주하는 고객에게 판매한 도서의 총판매액을 구하시오.
+select sum(saleprice)
+from orders
+where custid in (select custid from customer where address like '%대한민국%')
+;
+
+-- 3번 고객이 주문한 도서의 최고 금액보다 
+-- 더 비싼 도서를 구입한 
+-- 주문의 주문번호와 금액을 보이시오.
+select max(saleprice) from orders where custid=3;
+
+select orderid,saleprice
+from orders
+--where saleprice > (select max(saleprice) from orders where custid=3)
+where saleprice > all (select saleprice from orders where custid=3 )
+;
+
+-- EXISTS 연산자로 대한민국에 거주하는 고객에게 판매한 도서의 총 판매액을 구하시오.
+select * from customer where address Like '%대한민국%';
+
+select sum(saleprice)
+from orders o
+where EXISTS (select * from customer c where address Like '%대한민국%' and o.custid=c.custid)
+;
+
 
 
 
