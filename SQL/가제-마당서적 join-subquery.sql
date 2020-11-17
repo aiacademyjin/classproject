@@ -74,7 +74,7 @@ where custid=(select custid from customer where name='박지성')
 ;
 
 -- 도서의 이름 출력
-select *
+select distinct bookname
 from book
 where bookid not in (
                     select bookid
@@ -86,12 +86,16 @@ where bookid not in (
 ;
 
 
-select distinct b.bookname
+select b.bookname
 from customer c, book b, orders o
-where c.custid=o.custid and b.bookid=o.bookid
+where c.custid=o.custid and b.bookid(+)=o.bookid
 and c.name!='박지성'
 ;
 
+select *
+from orders o, book b, customer c
+where o.bookid=b.bookid(+) --and c.custid=o.custid
+;
 
 ​
 
@@ -206,25 +210,67 @@ where o.bookid=b.bookid
 
 ​
 
-(13) 도서의판매액평균보다자신의구매액평균이더높은고객의이름
+-- (13) 도서의 판매액 평균 보다 자신의 구매액 평균이 더 높은 고객의 이름
 
+-- 판매액 평균
+select avg(saleprice) from orders;
+
+-- 자신의 구매액 평균
+select c.name, avg(saleprice)
+from customer c, orders o
+where c.custid=o.custid
+group by c.name
+having avg(saleprice)>(select avg(saleprice) from orders)
+;
+
+​
 
 ​
 
 ​
 
+--3. 마당서점에서 다음의 심화된 질문에 대해 SQL 문을 작성하시오.
+
+--(1) 박지성이 구매한 도서의 출판사와 같은 출판사에서 도서를 구매한 고객의 이름
+
+-- 박지성이 구매한 도서의 출판사
+select distinct b.publisher
+from customer c, book b, orders o
+where c.custid=o.custid and b.bookid=o.bookid
+and c.name='박지성'
+;
+
+-- 
+select c.name
+from customer c, book b, orders o
+where c.custid=o.custid and b.bookid=o.bookid
+and b.publisher in (
+
+                        select distinct b.publisher
+                        from customer c, book b, orders o
+                        where c.custid=o.custid and b.bookid=o.bookid
+                        and c.name='박지성'
+)
+and  c.name!='박지성'
+;
 ​
 
-3. 마당서점에서 다음의 심화된 질문에 대해 SQL 문을 작성하시오.
-
-(1) 박지성이 구매한 도서의 출판사와 같은 출판사에서 도서를 구매한 고객의 이름
-
-
 ​
 
-​
+--(2) 두 개 이상의 서로 다른 출판사에서 도서를 구매한 고객의 이름
 
-(2) 두 개 이상의 서로 다른 출판사에서 도서를 구매한 고객의 이름
+select c.name, count(distinct b.publisher)
+from customer c, book b, orders o
+where c.custid=o.custid and b.bookid=o.bookid
+group by c.name
+having count(distinct b.publisher)>1
+;
+
+select c.name, b.bookname, b.publisher
+from customer c, book b, orders o
+where c.custid=o.custid and b.bookid=o.bookid
+order by c.name
+;
 
 
 ​
