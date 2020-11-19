@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.List;
 
 // DAO : Data Access Object -> 데이터베이스 처리하는 기능만 가지는 클래스
@@ -109,7 +109,7 @@ public class DeptDao {
 	// 부서의 전체 리스트
 	List<Dept> listDept(Connection conn) {
 
-		List<Dept> list = Collections.emptyList();
+		List<Dept> list = new ArrayList<Dept>();
 
 		Statement stmt = null;
 
