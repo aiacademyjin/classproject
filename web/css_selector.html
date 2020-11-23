@@ -15,7 +15,7 @@
 
         /*전체선택자: 전체 폰트의 컬러값을 지정*/
         * {
-            color: red;
+            /*color: red;*/
         }
 
         /*테그 선택자*/
@@ -151,12 +151,183 @@
             background-color: black
         }
         
+        /*
+        반응 선택자
+        :hover : 마우스 커서가 특정 테그 위로 올라갈때
+        :active : 마우스 버튼 누르고 있는 상태
+        */
         
+        h1:hover {
+            background-color: red;
+            color: aquamarine;
+            cursor:  pointer;
+        }
+        
+        h1:active {
+            background-color: black;
+            color:white;
+        }
+        
+        /*
+        상태선택자
+        :checked   -> checkbox, radio
+        :focus     -> input
+        :enabled   -> 사용 가능한 input
+        :disabled  -- 사용 불가한 input      
+        */        
+        
+        input:enabled {
+            border: 1px solid blue;
+            background-color: aqua;
+        }
+        
+        input:disabled {
+            border: 1px solid red;
+            background-color: darkgray;
+        }
+        
+        input:focus {
+            background-color: yellow;
+        }
+        
+        #msg {
+            padding: 20px;
+            background-color: bisque;
+            display: none;
+        }
+        
+        input[type=checkbox]:checked + #msg {
+            display: block;
+        }
+        
+        #nav, #nav>li {
+            border: 0;
+            list-style: none;  
+            margin:0;
+            padding:0;
+        }
+        
+        #nav {
+            margin: 20px 0;
+            overflow: hidden;   
+            /*float:left 속성을 #nav 안으로 한정한다*/
+        }
+        
+        #nav>li {
+            float: left;
+            padding: 0 10px; 
+            /*border: 1 solid gray;*/
+        }
+        
+        #nav>li:first-child {
+            background-color: aqua;
+            border-radius: 10px 0 0 10px; 
+        }
+        
+        #nav>li:last-child {
+            background-color: aqua;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        #nav>li:nth-child(2n) {
+            background-color: aqua;
+        }
+        
+        #nav>li:nth-child(2n+1) {
+            background-color: aquamarine;
+        }
+        
+        /*
+        문자 선택자
+        ::first-letter
+        ::first-line
+        */
+        
+        p::first-letter {
+            font-size:300%;  /*16px * 3*/
+        }
+        p::first-line {
+            color: blueviolet;
+        }
+        
+        p::selection {
+            background-color: black;
+            color: aqua;
+        }
+        
+        /*
+        링크 선택자
+        :link 
+        :visited
+        */
+        
+        a:link {
+            color: aquamarine;
+            text-decoration: none;
+        }
+        a:visited {
+            color: aquamarine;
+            text-decoration: none;
+        }
+        a:hover {
+            color : blue;
+        }
+        
+/*        a:link::after {
+            content: '(' attr(href) ')';
+        }*/
+        
+                
+        a:link::before {
+            content: '(' attr(href) ')';
+        }
         
     </style>
 </head>
 
 <body>
+    
+    
+    <h2>
+        <a href="http://www.naver.com">네이버</a>
+    
+    </h2>
+    
+    
+    
+    
+    <p>
+    카카오엔터프라이즈는 지난 20일 카카오엔터프라이즈의 서비스 ‘카카오 i 커넥트톡 AI 챗봇(이하 카카오챗봇)’이 ‘디지털서비스 전문 계약제도’ 심사위원회를 통과했다고 23일 밝혔다.
+    </p>
+    
+    <p>
+    디지털서비스 전문계약제도는 디지털 정부 혁신의 일환으로 과학기술정보통신부·기획재정부·조달청이 지난 10월5일 시행한 제도다. 이번 심사위를 통과한 카카오 챗봇은 조달청에서 운영하는 ‘디지털서비스 전용몰’에 입점하게 된다. 디지털 서비스를 이용하려는 공공기관은 이 전용몰에서 필요에 따라 필요한 서비스를 쉽게 선택하고 구매할 수 있어 한층 빠른 계약과 도입이 가능하다.
+    </p>
+    
+    
+    <ul id="nav">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+    </ul>
+    
+    
+    
+    보이기 
+    <input type="checkbox">
+    <div id="msg">
+        체크박스를 체크하시면 DIV 블록이 안보입니다.
+    </div>
+    
+    
+    <br>
+    
+    <input> <input disabled>
 
     <div id="div1">
         <h1>Header - 1</h1>
