@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테스트 폼-1</title>
+</head>
+
+<body>
+    <!--<h1>테스트 폼-1</h1>-->
+    <!--
+        action 생략 : 자기 자신의 페이지로
+        meyhod 생략 : get
+    -->
+    <form>
+        <!--label 의 for 속성은 특정 id의 input으로 포커스를 이동-->
+        <label for="username">이름</label>
+        <input id="username" name="username"><br>
+        성별
+        <input type="radio" id="M" name="gender" value="M">
+        <label for="M">남자</label>
+        <input type="radio" id="F" name="gender" value="F">
+        <label for="F">여자</label> <br>
+
+        생일
+        <select name="byear">
+            <option>2020</option>
+            <option>1940</option>
+        </select> 년
+        <select name="bmonth">
+            <option value="1">1월</option>
+            <option value="12">12월</option>
+        </select>
+        <select name="bday">
+            <option value="1">1일</option>
+            <option value="31">31일</option>
+        </select>
+        <br>
+        <input type="date" name="birthday">
+        <br>
+
+
+        <input type="submit" value="가입">
+
+    </form>
+
+
+
+
+
+
+
+
+
+
+</body></html>
