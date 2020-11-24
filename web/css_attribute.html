@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 속성</title>
+    <style>
+        h1.title {
+            background-color: black;
+            color: aliceblue;
+            font-size: 24px;
+        }
+        
+        body{
+            /*url 은 경로를 표현*/            
+            /*background-image: url(mini2.jpg);*/
+        }
+    </style>
+    <style>
+        /*CSS 사용되는 단위 : %, em, px*/
+
+        #size1>div:nth-child(1) {
+            font-size: 100%;
+        }
+
+        #size1>div:nth-child(2) {
+            font-size: 150%;
+        }
+
+        #size1>div:nth-child(3) {
+            font-size: 200%;
+        }
+
+        #size2>div:nth-child(1) {
+            font-size: 1.0em;
+        }
+
+        #size2>div:nth-child(2) {
+            font-size: 1.5em;
+        }
+
+        #size2>div:nth-child(3) {
+            font-size: 2.0em;
+        }
+
+        #size3>div:nth-child(1) {
+            font-size: 16px;
+        }
+
+        #size3>div:nth-child(2) {
+            font-size: 24px;
+        }
+
+        #size3>div:nth-child(3) {
+            font-size: 32px;
+        }
+    </style>
+    <style>
+        #color>h4:nth-child(1) {
+            /*키워드를 이용한 색상 값*/
+            background-color: aquamarine;
+            color: blue;
+        }
+        #color>h4:nth-child(2) {
+            /*rgb(R,G,B)를 이용한 색상 표현*/
+            background-color: rgb(123,99,22);
+            color: rgb(0,255,255);
+        }
+        #color>h4:nth-child(3) {
+            /*
+            rgba(R,G,B,A) 를 이용한 색상 표현 : 투명도 표현
+            */
+            background-color: rgba(255,0,0,0.5);
+            color:azure;
+        }
+        #color>h4:nth-child(4) {
+            /*#000000 를 이용한 색상표현*/
+            /*background-color: #EEEEEE;*/
+            background-color: #F2B705;  /*#EEEEEE*/
+            color: #034C8C;
+        }
+    </style>
+    <style>
+        /* 
+        박스 속성 : width, height, border, padding, margin
+        */
+        #box1{
+            background-color: red;
+            
+            /*표현 영역 */
+            width:100px;
+            height:100px;
+            
+            /*테두리*/
+            border : 10px solid black;
+            
+            /*테두리와 텍스 사이의 간격*/
+            padding: 10px;
+            /*padding-top: 50px;*/
+            
+            /*요소 테그들과의 간격*/
+            margin : 50px;
+            /*margin-left:400px;*/
+
+            
+        }
+        
+        
+        #box2 {
+            
+            background-color: cadetblue;
+            
+            width:100px; 
+            height:100px;
+            
+            padding:10px;
+            margin:10px;
+            
+            border: 5px solid blue;            
+            /*border-radius:  10px;*/
+            
+            /*border-radius: 좌상우하 우상좌하 */
+            /*border-radius: 10px 30px;*/
+            
+            /*border-radius: 좌상 우상 우하 좌하 */
+            /*border-radius: 10px 20px 30px 50px;*/
+            
+            border-radius: 70px;
+            
+            background-image: url(mini1.jpg);
+            background-size: 100%;
+        }
+        
+        
+    </style>
+</head>
+
+<body>
+    
+    <h1 class="title">박스 속성 : width, height, border, padding, margin</h1>
+    <div>
+        <div id="box2"></div>
+        <div id="box1">
+            BOX BOX BOX BOX BOX BOX BOX BOX
+        </div>    
+    </div>
+
+    
+    <h1 class="title">Color를 표현하는 단위</h1>
+    <div id="color">
+        <h4>키워드이용한 색상 표현</h4>
+        <h4>rgb(R,G,B) 이용 색상표현</h4>
+        <h4>rgba(R,G,B,A) 이용 색상표현</h4>
+        <h4>#000000</h4>
+    </div>
+    
+
+    <h1 class="title">Font-size : 단위를 확인</h1>
+    <div>
+        <div id="size1">
+            <div>font-size : 100%</div>
+            <div>font-size : 150%</div>
+            <div>font-size : 200%</div>
+        </div>
+        <div id="size2">
+            <div>font-size : 1.0em</div>
+            <div>font-size : 1.5em</div>
+            <div>font-size : 2.0em</div>
+        </div>
+        <div id="size3">
+            <div>font-size : 16px</div>
+            <div>font-size : 24px</div>
+            <div>font-size : 32px</div>
+        </div>
+    </div>
+
+
+
+
+
+</body></html>
