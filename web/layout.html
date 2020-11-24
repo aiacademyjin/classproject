@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>layout</title>
+    
+    <!--웹폰트-->
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+    
+    <!-- 기본 설정 -->
+    <style>
+        * {
+            font-family: 'Do Hyeon', sans-serif;
+            margin:0;
+            padding:0;
+        }
+        body{
+            background-color: beige
+        }
+        
+        /*main_wrap*/        
+        #main_wrap {
+            width: 800px;
+            height: 800px;
+            
+            background-color: #FFF;
+            
+            margin: 20px auto;
+            
+            border: 1px solid #DDD;
+            border-radius: 5px;
+            
+            box-shadow: 3px 3px 5px #DDD;
+            
+        }
+        
+        /*해더*/
+        header {
+            border: 1px solid ;   
+            padding:20px;
+        }
+        /*네비게이션*/
+        nav {
+            border: 1px solid ; 
+            padding:20px;             
+        }
+        /*contents_wrap*/
+        #contents_wrap {
+            overflow: hidden;
+        }
+        /*content*/
+        #content {
+            border: 1px solid ;  
+            width: 595px;
+            height: 300px;
+            float: left;        
+        }
+        /*aside*/
+        #contents_wrap>aside{
+            border: 1px solid ;  
+            width: 195px;
+            float: right;  
+            height: 100px;
+        }
+        
+        /*footer*/
+        footer {
+            border: 1px solid ; 
+            padding:20px;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div id="main_wrap">
+        <header>해더 영역으로 로고와 텍스트가 표현됩니다.</header>
+        <nav>네비게이션 영역 메뉴와 검색 도구가 표현됩니다.</nav>
+        <div id="contents_wrap">
+            <div id="content">컨텐드 영역 입니다.</div>
+            <aside> aside 영역 입니다.</aside>
+        </div>
+        <footer>
+            footer
+        </footer>
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</body>
+    
+    
+    
+    
+    
+    
+    
+    
+</html>
