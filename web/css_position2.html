@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>position 속성</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            border: 5px solid black;
+            text-align: center;
+            line-height: 100px;
+            font-weight: bold;
+            color: white;
+            position: absolute;
+        }
+
+        #box1 {
+            background-color: red;
+            left: 10px;
+            top: 10px;
+        }
+
+        #box2 {
+            background-color: green;
+            left: 20px;
+            top: 20px;
+        }
+
+        #box3 {
+            background-color: blue;
+            left: 30px;
+            top: 30px;
+        }
+        #wrap {
+            position: relative;
+            height:50px;
+            width : 300px;
+            border : 1px solid black;
+            /*overflow: hidden;*/
+            /*overflow: scroll;*/
+            overflow: auto;
+        }
+    </style>
+    <style>
+        .circle {
+            width: 50px;
+            height: 50px;
+            
+            border: 1px solid #AAA;
+            border-radius: 50%;
+            
+            background-color: brown;
+            
+            position: absolute;
+            
+            background-image: url(mini2.jpg);
+            background-size: contain;
+        }
+        
+        #panel {
+            width: 400px;
+            height : 200px;
+            
+            background-color: antiquewhite;
+            
+            position: relative;
+        }
+        
+        #panel>div:hover {
+            background-image: url(mini1.jpg);
+            
+        }
+        
+        #panel>div:nth-child(1){
+            left: 10px;
+            top: 10px;
+        }
+        #panel>div:nth-child(2){
+            right: 10px;
+            top: 10px;
+        }
+        #panel>div:nth-child(3){
+            right: 10px;
+            bottom: 10px;
+        }
+        #panel>div:nth-child(4){
+            left: 10px;
+            bottom: 10px;
+        }
+        
+        
+    </style>
+</head>
+
+<body>
+    <h1>HEADER</h1>
+    <div id="wrap">
+        <div id="box1" class="box">red</div>
+        <div id="box2" class="box">green</div>
+        <div id="box3" class="box">blue</div>
+    </div>
+
+    <h1>FOOTER</h1>
+    
+    <div id="panel">        
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div>
+
+</body></html>
