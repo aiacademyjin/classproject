@@ -4,6 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSS 속성</title>
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+    
+    
     <style>
         h1.title {
             background-color: black;
@@ -133,9 +139,60 @@
         
         
     </style>
+    <style>
+        
+        #display span {
+            background-color: aqua;
+            width: 100px;
+            height: 100px;
+        }
+        
+        #display>span:nth-child(1){
+            /*화면에서 요소 테그를 표현하지 않는다*/
+            /*display:none;*/
+        }
+        #display>span:nth-child(2){
+           /* display: block;*/
+            display: inline-block;
+            
+        }
+        #display>span:nth-child(3){
+            
+        }
+    </style>
+    <style>
+        #font {
+            /*font-family: '궁서체';*/
+            /*font-family: 'Nanum Gothic', sans-serif;*/
+            font-family: 'Jua', sans-serif;
+            font-size : 3em;
+            /*font-weight: bold;*/
+            font-weight: bold;
+            font-style: italic;
+            color: blue;
+            
+            /*텍스트의 수평 방향의 정렬 : center, left, right*/
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
+    
+    <h1 class="title">폰트 관련 속성 : font-family, font-size, font-style, font-weight</h1>
+    <div id="font">
+        안녕하세요. 반갑습니다.
+    </div>
+    
+    
+    <h1 class="title">display 속성 : none, block, inline, inline-block</h1>
+    <div id="display">
+        <span>span1</span>
+        <span>span2</span>
+        <span>span3</span>    
+    </div>
+    
+    
     
     <h1 class="title">박스 속성 : width, height, border, padding, margin</h1>
     <div>
