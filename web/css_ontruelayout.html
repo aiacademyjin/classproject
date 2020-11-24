@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One True Layout</title>
+    <style>
+        
+        * {
+            margin : 0;
+            padding : 0; 
+            
+        }
+        
+        div{
+            border : 1px solid blue;
+            /*text-align: center;*/
+            line-height: 20px;
+        }
+        #header {
+            width: 498px;
+            height : 50px;
+        }
+        #navi {
+            width: 498px;
+            height : 20px;
+        }
+        #content {  /* 350 : 150 */
+            width: 348px;
+            height : 100px;
+            background-color: antiquewhite;
+            float:left;
+        }
+        #aside {  /* 350 : 150 */
+            width: 148px;
+            height : 50px;
+            background-color: aqua;
+            float: left;            
+        }
+        
+        #footer {
+            clear: both;
+            width: 498px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <img src="mini1.jpg" height="40">
+    </div>
+    <div id="navi">NAVIGATION</div>
+    <div id="content">CONTENT</div>
+    <div id="aside">ASIDE</div>
+    <div id="footer">FOOTER</div>
+</body>
+</html>
