@@ -9,81 +9,44 @@
     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
     
     <!-- 기본 설정 -->
-    <style>
-        * {
-            font-family: 'Do Hyeon', sans-serif;
-            margin:0;
-            padding:0;
-        }
-        body{
-            background-color: beige
-        }
-        
-        /*main_wrap*/        
-        #main_wrap {
-            width: 800px;
-            height: 800px;
-            
-            background-color: #FFF;
-            
-            margin: 20px auto;
-            
-            border: 1px solid #DDD;
-            border-radius: 5px;
-            
-            box-shadow: 3px 3px 5px #DDD;
-            
-        }
-        
-        /*해더*/
-        header {
-            border: 1px solid ;   
-            padding:20px;
-        }
-        /*네비게이션*/
-        nav {
-            border: 1px solid ; 
-            padding:20px;             
-        }
-        /*contents_wrap*/
-        #contents_wrap {
-            overflow: hidden;
-        }
-        /*content*/
-        #content {
-            border: 1px solid ;  
-            width: 595px;
-            height: 300px;
-            float: left;        
-        }
-        /*aside*/
-        #contents_wrap>aside{
-            border: 1px solid ;  
-            width: 195px;
-            float: right;  
-            height: 100px;
-        }
-        
-        /*footer*/
-        footer {
-            border: 1px solid ; 
-            padding:20px;
-        }
-    </style>
+    <!--외부에서 default.css를 로드-->
+    <link rel="stylesheet" href="default.css">
+
 </head>
 
 <body>
     
     <div id="main_wrap">
-        <header>해더 영역으로 로고와 텍스트가 표현됩니다.</header>
-        <nav>네비게이션 영역 메뉴와 검색 도구가 표현됩니다.</nav>
+        
+        <header>
+            <h1>에이아이아카데미</h1>
+            <h4>자바 웹 개발자과정</h4>
+        </header>
+        
+        <nav>
+            <!--메인 메뉴-->
+            <ul>
+                <li>HTML5</li>
+                <li>CSS3</li>
+                <li>Javascript</li>
+                <li>jQuery</li>
+            </ul>
+            
+            <form>
+                <input type="text">
+                <input type="button" value="검색">
+            </form>
+            
+            
+            
+        </nav>
+        
         <div id="contents_wrap">
             <div id="content">컨텐드 영역 입니다.</div>
             <aside> aside 영역 입니다.</aside>
         </div>
-        <footer>
-            footer
-        </footer>
+        
+        <footer>footer</footer>
     
     </div>
     
