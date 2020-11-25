@@ -1,0 +1,135 @@
+ * {
+     font-family: 'Do Hyeon', sans-serif;
+     margin: 0;
+     padding: 0;
+ }
+
+ body {
+     background-color: beige
+ }
+
+ /*main_wrap*/
+ #main_wrap {
+     width: 800px;
+     height: 800px;
+
+     background-color: #FFF;
+
+     margin: 20px auto;
+
+     border: 1px solid #DDD;
+     border-radius: 5px;
+
+     box-shadow: 3px 3px 5px #DDD;
+
+ }
+
+ /*해더*/
+ header {
+     /*border: 1px solid;*/
+     padding: 20px 50px;;
+ }
+
+ /*네비게이션*/
+ nav {
+     border-top: 1px solid #AAA;
+     border-bottom: 1px solid #AAA;
+     overflow: hidden;
+ }
+
+nav>ul {
+    float: left;
+    overflow: hidden;
+    list-style: none;
+}
+
+nav>ul>li {
+    float: left;
+    width: 80px;
+    height: 30px;
+    
+    /*padding: 0 10px;*/
+    
+    line-height: 30px;
+    text-align: center;
+}
+
+nav>ul>li:hover {
+    cursor: pointer;
+    background-color: cadetblue;
+    color: aliceblue;
+}
+
+
+nav>form {
+    float:right;
+}
+
+ /*contents_wrap*/
+ #contents_wrap {
+     /*블록 내부의 요소들만 float 속성을 적용*/
+     overflow: hidden;
+ }
+
+ /*content*/
+ #content {
+     border: 1px solid;
+
+     width: 595px;
+     height: 300px;
+
+     float: left;
+ }
+
+ /*aside*/
+ #contents_wrap > aside {
+     border: 1px solid;
+
+     width: 195px;
+     height: 100px;
+
+     float: right;
+ }
+
+ /*footer*/
+ footer {
+     border: 1px solid;
+     padding: 20px;
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
