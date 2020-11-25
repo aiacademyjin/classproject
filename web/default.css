@@ -11,7 +11,7 @@
  /*main_wrap*/
  #main_wrap {
      width: 800px;
-     height: 800px;
+     /*height: 800px;*/
 
      background-color: #FFF;
 
@@ -21,6 +21,8 @@
      border-radius: 5px;
 
      box-shadow: 3px 3px 5px #DDD;
+     
+     padding: 10px;
 
  }
 
@@ -63,6 +65,24 @@ nav>ul>li:hover {
 
 nav>form {
     float:right;
+    margin-right: 10px;
+    
+}
+
+nav>form>input[type=button] {
+    margin-left:-1px;
+    width: 40px;
+    border-radius: 0 10px 10px 0;
+}
+
+nav>form>input[type=text] {
+    border-radius: 10px 0 0 10px;
+    padding: 0 10px;
+}
+
+nav>form>input {
+    border: 1px solid #AAA;
+    margin-top:5px;
 }
 
  /*contents_wrap*/
@@ -73,28 +93,64 @@ nav>form {
 
  /*content*/
  #content {
-     border: 1px solid;
+     /*border: 1px solid;*/
 
      width: 595px;
-     height: 300px;
+     /*height: 300px;*/
 
      float: left;
+     
+     padding: 5px;
  }
+
+#content>section>article>h1 {
+    color: dodgerblue;
+    margin: 15px 0;
+    
+    font-size : 24px;
+}
+
+#content>section>article>img {
+    height: 150px;
+    margin: 10px 0;
+}
+
+#content>section>article>hr {
+    border:0;
+    border-top: 1px solid #AAA;
+    margin: 10px 0;
+}
 
  /*aside*/
  #contents_wrap > aside {
-     border: 1px solid;
+     /*border: 1px solid;*/
 
-     width: 195px;
-     height: 100px;
+     width: 190px;
+     /*height: 100px;*/
 
      float: right;
  }
 
+#contents_wrap>aside>h4 {
+    margin-top: 30px;
+}
+
+#contents_wrap>aside>ul {
+    list-style: none;
+    padding-left: 10px;
+}
+
+#contents_wrap>aside>h4+div {
+    padding-left: 10px;
+}
+
  /*footer*/
  footer {
-     border: 1px solid;
+     /*border: 1px solid;*/
      padding: 20px;
+     text-align: center;
+     color: #999;
+     background-color: #EEE;
  }
 
 
