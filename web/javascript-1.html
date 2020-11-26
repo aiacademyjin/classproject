@@ -22,33 +22,34 @@
         기본적인 사칙연산이 가능 : + - * / %
         */
         //alert(1+2);
-        console.log('1+2=',1+2);
+        /*console.log('1+2=',1+2);
         
         console.log(' "김" == "한" =>', '김'=='한');
         console.log(' "김" > "한" =>', '김'>'한');
-        console.log(' "김" < "한" =>', '김'<'한');
+        console.log(' "김" < "한" =>', '김'<'한');*/
         
         /*
             true->1, flase->0
         */
-        console.log(' true > false =>', true>false);
+        //console.log(' true > false =>', true>false);
         
         var num = 100;
         
-        console.log('변수 num이 가지는 값 => ', num+200);
+        //console.log('변수 num이 가지는 값 => ', num+200);
         
         var number = 1000; // 숫자
         var str = 'String'; // 문자열
         var bool = false; // 논리값
         var func = function (){}; // 함수
         var obj = {}; // 객체
+        var arr = []; // 객체(배)
         
         
         /*변수의 자료형 타입의 확인 => typeof(변수이름)*/
-        console.log('number의 타입 ->', typeof(number));
+        /*console.log('number의 타입 ->', typeof(number));
         console.log('str의 타입 ->', typeof(str));
         console.log('func의 타입 ->', typeof(func));
-        console.log('obj의 타입 ->', typeof(obj));
+        console.log('obj의 타입 ->', typeof(obj));*/
         
         /*if(typeof(number)=='number'){
             alert('변수 number는 number타입 입니다.'+ number*3);
@@ -60,7 +61,7 @@
         var food = '감자탕';
         var food = 10;
         
-        console.log(food);
+        //console.log(food);
         
         /*
         사용자의 의사표현을 묻는 함수 
@@ -70,7 +71,7 @@
         console.log('check =',check);*/
         
         /*사용자의 데이터 입력을 받는 함수*/
-        var userData = prompt('숫자를 입력해주세요.', 100);
+        /*var userData = prompt('숫자를 입력해주세요.', 100);
         
         var age = Number(userData);
         
@@ -81,10 +82,65 @@
             alert('안녕하세요.');
         } else {
             alert('성인만 입장이 가능합니다.');
-        }
+        }*/
         
         var str = String(123);
-        console.log('typeof(str) =>',typeof(str))
+        //console.log('typeof(str) =>',typeof(str))
+        
+        /*논리값으로 변환하는 함수 : Boolean()*/
+       /* console.log(Boolean(0));
+        console.log(Boolean(''));
+        console.log(Boolean(NaN));
+        console.log(Boolean(null));
+        console.log(Boolean(undefined));
+        
+        console.log(0==false);
+        console.log(''==false);        
+        console.log(''==0);                
+        console.log(NaN==false);
+        console.log(null==false);
+        console.log(undefined==false);
+        
+        console.log(!!0);
+        console.log(!!'');        
+        console.log(!!NaN);
+        console.log(!!null);
+        console.log(!!undefined);
+        
+        console.log('0===false =>', 0===false);
+        console.log('\'\'===false =>', ''===false);        
+        console.log('\'\'===0 =>', ''===0);  
+        console.log('\'123\'===123 =>', '123'===123); */ 
+        
+        
+        /* || 논리값이 false 일 때만 실행*/
+        /*(food>0) || console.log('음수입니다.') ;
+        (food<0) || console.log('양수입니다.') ;*/
+        
+        /* && 논리값이 true 일 때만 실행*/
+       /* (food<0) && console.log('음수입니다.') ;
+        (food>0) && console.log('양수입니다.') ;*/
+        
+        /*
+        자바스크립트의 배열
+        대괄호( []  ) 로 생성할 수 있다.
+        배열의 요소는 모든 타입의 변수가 올수 있다.
+        */
+        var arr = [];
+        var arr = [123, 'hello', {}, function(){alert('HOT')}, true, [1,2,3,4,5]];
+        
+        //console.log('typeof(arr) =>',typeof(arr));
+        //console.log('arr =>',arr);  
+        
+        /*for 반복문을 이용해서 일괄 처리*/
+        for(var i=0; i<arr.length; i++){
+            console.log(String(i), arr[i]);
+        }
+        
+        /*for in 반복문을 이용*/
+        for(var i in arr){
+            console.log(i, arr[i]);
+        }
         
         
     </script>
@@ -95,7 +151,7 @@
 <body>
     <script>
         
-        var name1 = '카카오';
+      /*  var name1 = '카카오';
         var name2 = '네이버';
         
         //alert(2);
@@ -108,7 +164,7 @@
         console.log(htmlStr);
         
         //document.body.innerHTML = '<h1>안녕!!!</h1>';
-        document.body.innerHTML = htmlStr;
+        document.body.innerHTML = htmlStr;*/
         
     </script>
 </body>

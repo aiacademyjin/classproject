@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>숫자 확인 프로그램</title>
+    <script>
+        /*사용자에게 숫자를 입력 받아 양수, 0, 음수를 구분하는 프로그램*/
+        var number = prompt('숫자를 입력해주세요.');
+        //alert(number);
+        if(number>0){  
+            // number가 string 타입이지만 비교 연산에는 숫자 연산이 우선한다. 숫자 타입으로 변경되어 연산
+            alert('양수입니다.');
+        } else if(number<0) {
+            alert('음수입니다.');
+        } else {
+            alert('0 입니다.');
+        }
+        
+        /*사용자에게 숫자를 입력 받아 홀수와 짝수를 구분하는 프로그램*/
+        number = prompt('숫자를 입력하세요.');
+        
+        var num = Number(number);
+        
+        console.log(!!num);
+        
+        if(!num){
+            alert('숫자만 확인이 가능합니다.');
+        } else if(num%2==0) {
+            alert('짝수'); 
+        } else {
+            alert('홀수');
+        }
+        
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
