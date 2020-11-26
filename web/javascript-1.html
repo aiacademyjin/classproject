@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Test</title>
+    <style>
+        ul.no_style{
+            list-style: none;
+        }
+    </style>
+
+    <script>
+        //alert(1);
+        /*alert(11);*/
+        
+        /*문자열의 표현은 작은 따움표*/
+        //alert('"안녕\n하세요"');
+        /*
+        숫자의 표현은 정수와 실수를 구분하지 않는다.
+        기본적인 사칙연산이 가능 : + - * / %
+        */
+        //alert(1+2);
+        console.log('1+2=',1+2);
+        
+        console.log(' "김" == "한" =>', '김'=='한');
+        console.log(' "김" > "한" =>', '김'>'한');
+        console.log(' "김" < "한" =>', '김'<'한');
+        
+        /*
+            true->1, flase->0
+        */
+        console.log(' true > false =>', true>false);
+        
+        var num = 100;
+        
+        console.log('변수 num이 가지는 값 => ', num+200);
+        
+        var number = 1000; // 숫자
+        var str = 'String'; // 문자열
+        var bool = false; // 논리값
+        var func = function (){}; // 함수
+        var obj = {}; // 객체
+        
+        
+        /*변수의 자료형 타입의 확인 => typeof(변수이름)*/
+        console.log('number의 타입 ->', typeof(number));
+        console.log('str의 타입 ->', typeof(str));
+        console.log('func의 타입 ->', typeof(func));
+        console.log('obj의 타입 ->', typeof(obj));
+        
+        /*if(typeof(number)=='number'){
+            alert('변수 number는 number타입 입니다.'+ number*3);
+        }*/
+      
+        
+        // 같은 이름의 변수를 재 선언해도 가능
+        var food = '김치찌게';
+        var food = '감자탕';
+        var food = 10;
+        
+        console.log(food);
+        
+        /*
+        사용자의 의사표현을 묻는 함수 
+        : yes / no -> true / flase
+        */
+        /*var check = confirm('삭제하시겠습니까?');
+        console.log('check =',check);*/
+        
+        /*사용자의 데이터 입력을 받는 함수*/
+        var userData = prompt('숫자를 입력해주세요.', 100);
+        
+        var age = Number(userData);
+        
+        console.log('userData =>', userData+' : '+typeof(userData));
+        console.log('age =>', age+' : '+typeof(age));
+        
+        if(age>19){
+            alert('안녕하세요.');
+        } else {
+            alert('성인만 입장이 가능합니다.');
+        }
+        
+        var str = String(123);
+        console.log('typeof(str) =>',typeof(str))
+        
+        
+    </script>
+
+
+</head>
+
+<body>
+    <script>
+        
+        var name1 = '카카오';
+        var name2 = '네이버';
+        
+        //alert(2);
+        var htmlStr = '';
+        htmlStr += '<ul class="no_style">\n';
+        htmlStr += '    <li>'+name1+'</li>\n';
+        htmlStr += '    <li>'+name2+'</li>\n';
+        htmlStr += '</ul>';
+        
+        console.log(htmlStr);
+        
+        //document.body.innerHTML = '<h1>안녕!!!</h1>';
+        document.body.innerHTML = htmlStr;
+        
+    </script>
+</body>
+
+</html>
+
+<script>
+    //alert(3);
+</script>
