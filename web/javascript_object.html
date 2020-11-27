@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Object</title>
+    <script>
+        
+        // 자바스크립트의 객체 생성
+        // {}  : 중괄호를 이용해서 쉽게 객체 생성
+        var obj = {};  // obj 이름의 객체를 생성
+        console.log('typeof(obj) =>',typeof(obj));
+        
+        // 객체의 속성 정의
+        // 속성이름:속성값, 속성이름:속성값
+        var member = {
+            memberId:'cool',
+            memberName:'시원한',
+            age:15,
+            chk:false,
+            books:['자바의정석','퍼스트자바','웹프로그래밍'],
+            hello:function(){
+                alert('안녕하세요');
+            }
+        };
+        
+        // 객체에 참조, 호출
+        // 객체변수.속성이름
+        // 객체변수.메소드이름()
+        console.log('회원의 아이디', member.memberId);
+        member.hello();
+        
+        //객체에 속성, 메소드 추가
+        member.study = function(){
+            alert(this.books[1]+'를 공부합니다.');
+        };
+        
+        member.study();
+        
+        member.nicName = 'COOL';
+        
+        console.log('member의 닉네임 =>', member.nicName);
+        
+        
+    
+    </script>
+</head>
+
+<body>
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
