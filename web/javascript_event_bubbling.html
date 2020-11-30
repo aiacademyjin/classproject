@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript event bubbling</title>
+    <style>
+        div{
+            height: 300px;
+            background-color: aquamarine;
+        }
+        
+        h1 {
+            background-color: orange;
+        }
+    </style>
+    <script>
+        
+        window.onload = function(){
+          
+            var div = document.querySelector('div');
+            var h1 = document.querySelector('h1');
+            
+            div.onclick = function(){
+                console.log('div 영역에 클릭 이벤트 발생!!')
+            }
+            
+            h1.onclick = function(e){
+                
+                var event = e || window.event;
+                
+                console.log('h1 영역에 클릭 이벤트 발생!!')
+                
+                if(event.stopPropagation){
+                    event.stopPropagation();
+                }
+                //return false;
+            }
+            
+        };
+    
+    </script>
+</head>
+
+<body>
+    
+    <div>
+        <h1>클릭하세요.</h1>
+    </div>
+    
+    
+</body>
+</html>
