@@ -34,25 +34,118 @@
             // 문서객체로 캐스팅
             // 버튼을 캐스팅
             document.getElementById('go_naver_btn').onclick = function() {
-                if (confirm('네이버 페이지로 이동하시겠습니까?')) {
-                    location.href = 'http://www.naver.com';
+
+                var userid = document.querySelector('#userid');
+
+                var uid = userid.value;
+
+                if (uid.length < 1) {
+                    alert('아이디는 필수 입력항목입니다.');
+                } else {
+                    alert('사용자가 입력한 아이디는 ' + userid.value + '입니다.');
                 }
+                
+                var alink = document.querySelector('a');
+                alink.style.display='block';
+                alink.style.backgroundColor='blue';
+                alink.style.fontSize=32;
+                alink.style.color='yellow';
+                alink.style.fontWeight='bold';
+                alink.style.textAlign='center';
+
+
+
+                /*if (confirm('네이버 페이지로 이동하시겠습니까?')) {
+                    location.href = 'http://www.naver.com';
+                }*/
             };
             
             
+            // 삭제버튼 : 이벤트 설정
+            document.querySelector('input[type=submit]').onclick = function(){
+               
+                alert('h1');
+                
+                // 삭제 대상 
+                var remove_h1 = document.getElementById('header-1');
+                
+                // 삭제 대상을 포함하는 문서객체
+                var parent = document.body;
+                
+                parent.removeChild(remove_h1);
+                
+                
+            };
+
+
             //navigator 객체 속성 확인
             console.log(navigator);
 
-        };
+            // html 문서의 요소를 문서객체로 만들기
+            // id 속성값으로 문서 객체 생성 : 캐스팅
+            // document.getElementById('아이디속성값');
 
+            var header1 = document.getElementById('header-1');
+            var header2 = document.getElementById('header-2');
+
+            header1.innerHTML = '<i>문서 객체 생성</i>';
+            header2.textContent = '<i>문서 객체 생성</i>';
+
+            // 태그이름으로 문서객체 생성 -> 배열로 반환
+            var divs = document.getElementsByTagName('div');
+
+            divs[0].innerHTML = 'ByTagName-0';
+            //divs[0].style.backgroundColor='black';
+            //divs[0].style.color='yellow';
+            
+            divs[1].innerHTML = 'ByTagName-1';
+
+            
+            
+            // CSS의 서택자로 선택할수 있는 메소드
+
+            var div1 = document.querySelector('div');
+            //alert(div1.innerHTML)
+
+            var divs = document.querySelectorAll('div');
+            alert(divs[0].innerHTML+' : querySelectorAll');
+
+            var input = document.querySelector('input[type=button]');
+
+
+            alert(input.value);
+
+            input = document.querySelector('input[type=text]');
+            alert(input.value);
+
+
+
+        };
     </script>
+    <style>
+        a{
+            display: none;
+        }
+    </style>
 
 </head>
 
 <body>
 
+    <div id="header-1">1</div>
+    <div id="header-2">2</div>
+
+    <input type="text" value="test" id="userid"><br>
+
+    <br>
+
     <input type="button" value="네이버로 이동" id="go_naver_btn">
     <a href="http://www.naver.com">네이버로 이동</a>
+    
+    
+    <br>
+    
+    <input type="submit" value="H1-0 삭제">
 
 
 
@@ -63,6 +156,4 @@
 
 
 
-</body>
-
-</html>
+</body></html>
