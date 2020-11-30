@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript의 실행 순서</title>
+    <script>
+        alert(1);
+        var h1 = document.getElementById('h1');
+        console.log('h1 ->', typeof(h1));
+        h1.innerHTML = '변경';
+    </script>
+</head>
+
+<body>
+    <h1 id="h1">h1 태그가 생성되었습니다.</h1>
+    <script>
+        alert(2);
+        var h1 = document.getElementById('h1');
+        console.log('h1 ->', typeof(h1));
+        h1.innerHTML = '변경';
+    </script>
+</body></html>
+
+
+
+
+
+

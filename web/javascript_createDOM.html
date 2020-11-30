@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문서객체 동적 생성</title>
+    <script>
+    
+        window.onload = function(){
+            
+            // 태그 요소 생성
+            var header = document.createElement('h1');
+            
+            // 텍스트 요소 생성
+            var textNode = document.createTextNode('안녕하세요');
+            
+            // 태그요소에 텍스트 요소 추가
+            header.appendChild(textNode);
+            
+            // 새로운 문서객체를 body 요소에 추가
+            document.body.appendChild(header);
+            
+            
+            // 텍스트가 없는 요소 : img
+            var img = document.createElement('img');
+            img.src = 'mini1.jpg';
+            img.width = 200;
+            img.height = 400;
+            
+            document.getElementById('title').appendChild(img);
+            
+            
+            
+            
+           // document.body.appendChild(img);
+        }
+        
+    </script>
+</head>
+
+<body>
+    <h1 id="title">새로운 문서객체를 추가합니다.</h1>
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
