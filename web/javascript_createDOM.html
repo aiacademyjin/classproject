@@ -29,10 +29,38 @@
             
             document.getElementById('title').appendChild(img);
             
-            
-            
-            
            // document.body.appendChild(img);
+            
+            var title = document.getElementById('title');
+            
+            console.log('h1#title id->', title.getAttribute('data-brackets-id'));
+            
+            var link = document.getElementById('link_naver');
+            
+            // 텍스트노드 생성
+            //var str = document.createTextNode('-'+link.getAttribute('href'));
+            var str = document.createTextNode('-'+link.href);
+                        
+            link.appendChild(str);
+            
+            var img1 = document.createElement('img');
+            img1.setAttribute('src', 'images/bb8.png');
+            img1.setAttribute('width', 200);
+            
+            
+            document.body.appendChild(img1);
+            
+            
+            // 속성의 값이 HTML로 인식
+            title.innerHTML = '<i>안녕하세요</i>';
+            
+            alert(title.innerHTML);
+            alert(title.textContent);
+            
+            // HTML로 인식하는것이 아니라 순수하게 문자열로 내용을 출력
+            title.textContent = '<i>안녕하세요</i>';
+                        
+            
         }
         
     </script>
@@ -40,6 +68,9 @@
 
 <body>
     <h1 id="title">새로운 문서객체를 추가합니다.</h1>
+    
+    <a href="http://cafe.kakao.com" id="link_naver">네이버</a>
+    
     
 </body>
 </html>
