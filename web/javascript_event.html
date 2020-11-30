@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Event</title>
+    <style>
+        h1 {
+            border: 1px solid #999;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+
+            var header = document.getElementById('header');
+            header.onclick = function() {
+                alert('click Header~!!! ' + this.innerHTML);
+                header.onclick = null;
+            }
+
+
+            var btn1 = document.getElementById('btn1');
+            var btn2 = document.getElementById('btn2');
+            
+            var cnt1 = document.getElementById('count-a');
+            var cnt2 = document.getElementById('count-b');
+
+            // btn 문서객체에 클릭이벤트 적용
+            btn1.onclick = function() {
+                cnt1.innerHTML = Number(cnt1.textContent)+1;
+                btn2.onclick();
+            };
+            
+            btn2.onclick = function() {
+                cnt2.innerHTML = Number(cnt2.textContent)+1;
+            };
+
+
+
+        };
+        
+        function clickH1(){
+            alert('인라인방식으로 이벤트 처리');
+        }
+        
+    </script>
+
+</head>
+
+<body>
+    
+    <h1 onclick="clickH1();"> 인라인방식의 이벤트 정의</h1>
+
+    <button id="btn1">Button-A</button>
+    <button id="btn2">Button-B</button>
+    <h1>Button-A : <span id="count-a">0</span></h1>
+    <h1>Button-B : <span id="count-b">0</span></h1>
+
+
+    <h1 id="header">클릭</h1>
+
+
+</body></html>
+
+
+
+
+
+
+
+
