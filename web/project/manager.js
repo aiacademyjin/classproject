@@ -167,7 +167,16 @@ function setlist() {
     tbody += '</tr>';
 
     for (var i = 0; i < members.length; i++) {
-        tbody += members[i].makeHtml(i);
+        //tbody += members[i].makeHtml(i);
+        
+        tbody += '<tr>';
+        tbody += ' <td>' + i + '</td>';
+        tbody += ' <td>' + members[i].userid + '</td>';
+        tbody += ' <td>' + members[i].userpw + '</td>';
+        tbody += ' <td>' + members[i].username + '</td>';
+        tbody += ' <td><a href="javascript:editMember(' + i + ')">수정</a> <a href="javascript:delmember(' + i + ')">삭제</a></td>';
+        tbody += '</tr>';
+        
     }
 
     listrow.innerHTML = tbody;
