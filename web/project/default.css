@@ -58,6 +58,20 @@ div.msg {
     display : none;
 }
 
+table.table {
+    margin: 10px 40px;
+    width: 600px;
+    border-collapse: collapse;
+}
+
+table.table td, table.table th {
+    padding: 10px;
+    border: 1px solid #aaa;
+    background-color: #fff;
+    
+    text-align: center;
+}
+
 
 
 
