@@ -55,6 +55,7 @@
     </div>
     <!--회원 가입 폼 종료-->
 
+    <!--회원 리스트 시작-->
     <div>
         <hr>
         <h2 class="title">회원 리스트</h2>
@@ -72,6 +73,67 @@
         </table>
     
     </div>
+    <!--회원 리스트 종료-->
+    
+    <div class="edit_div">
+        <div class="edit_for_header">
+            <h2>데이터 수정</h2>
+            <a href="javascript:editMemberClose();">닫기</a>
+        </div>
+        <hr>
+        <form id="editform" onsubmit="return editMemberData();">
+            <input type="hidden" name="index" id="index">
+            <table>
+                <tr>
+                    <td>
+                        <label for="">아이디(이메일)</label>
+                    </td>
+                    <td>
+                        <input type="text" 
+                               name="userid" 
+                               id="editid" required readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="">비밀번호</label>
+                    </td>
+                    <td>
+                        <input type="password" 
+                               name="pw" 
+                               id="editpw" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="">비밀번호 확인</label>
+                    </td>
+                    <td>
+                        <input type="password" 
+                               id="editrepw" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="">이름</label>
+                    </td>
+                    <td>
+                        <input type="text" 
+                               name="username" 
+                               id="editname" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="수정">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    
+    </div>
+    
+    
     
 </body></html>
 
