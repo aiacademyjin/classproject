@@ -8,6 +8,37 @@ window.onload = function(){
    alert('외부 스크립트 파일에서 로드'); 
 }*/
 
+
+var members = [];
+
+// 생성자 함수 Member
+
+function Member(id, pw, name){
+    this.userid = id;
+    this.userpw = pw;
+    this.username = name;
+}
+
+Member.prototype.makeHtml = function(index){
+    
+    console.log(this.userid+' : ' + this.userpw+' : ' + this.username);
+    
+    var memberHtml = '';
+    memberHtml += '<tr>';
+    memberHtml += ' <td>'+index+'</td>';
+    memberHtml += ' <td>'+this.userid+'</td>';
+    memberHtml += ' <td>'+this.userpw+'</td>';
+    memberHtml += ' <td>'+this.username+'</td>';
+    memberHtml += ' <td><a>수정</a> <a>삭제</a></td>';
+    memberHtml += '</tr>';
+    
+    return memberHtml;
+    
+}
+
+
+
+
 function regmember(){
     
     // 사용자가 입력한 데이터를 확인
@@ -75,13 +106,24 @@ function regmember(){
     }
     
     
-    var member = {
+    /*var member = {
         memberid: userid.value,
         pw: pw.value,
         membername: username.value
-    };
+    };*/
     
-    console.log('member', member);
+    var member = new Member(userid.value, pw.value, username.value);
+    
+    //console.log('member', member);
+    member.makeHtml()
+    
+    // 배열에 회원 정보를 저장
+    members.push(member);
+    
+    console.log('members', members);
+    
+    // 리스트 갱신
+    setlist();
     
     
     
@@ -90,6 +132,25 @@ function regmember(){
 
 
 
+function setlist(){
+    
+    // table tbody 캐스팅
+    var listrow = document.querySelector('#listrow');
+    
+    var tbody = '<tr>';
+    tbody += '<th>순번(index)</th>';
+    tbody += '<th>아이디</th>';
+    tbody += '<th>비밀번호</th>';
+    tbody += '<th>이름</th>';
+    tbody += '<th>관리</th>';
+    tbody += '</tr>';
+    
+    for(var i=0; i<members.length; i++){
+        tbody += members[i].makeHtml(i) ;
+    }
+    
+    listrow.innerHTML=tbody;
+}
 
 
 
