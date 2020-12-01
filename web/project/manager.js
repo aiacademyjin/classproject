@@ -29,7 +29,7 @@ Member.prototype.makeHtml = function(index){
     memberHtml += ' <td>'+this.userid+'</td>';
     memberHtml += ' <td>'+this.userpw+'</td>';
     memberHtml += ' <td>'+this.username+'</td>';
-    memberHtml += ' <td><a>수정</a> <a>삭제</a></td>';
+    memberHtml += ' <td><a href="javascript:editMember('+index+')">수정</a> <a href="javascript:delmember('+index+')">삭제</a></td>';
     memberHtml += '</tr>';
     
     return memberHtml;
@@ -131,7 +131,7 @@ function regmember(){
 }
 
 
-
+// 리스테이블의 정렬
 function setlist(){
     
     // table tbody 캐스팅
@@ -153,6 +153,28 @@ function setlist(){
 }
 
 
+// 배열의 데이터를 삭제
+function delmember(index){
+    
+    var delChk = confirm('삭제하시겠습니까?');
+    
+    if(delChk){
+        
+        // 삭제 -> 배열에서 요소를 삭제
+        members.splice(index, 1);
+        
+        alert('삭제되었습니다.');
+        
+        // 배열의 변경된 내용으로 리스트 출력
+        setlist();
+        
+    }
+    
+}
+
+function editMember(index){
+    console.log(members[index]);
+}
 
 
 
