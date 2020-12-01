@@ -174,11 +174,52 @@ function delmember(index){
 
 function editMember(index){
     console.log(members[index]);
+    
+    // 수정 화면 캐스팅
+    var editDiv = document.querySelector('div.edit_div');
+    editDiv.style.display='block';
+    
+    // form 안에 있는 input 캐스팅
+    // id    
+    var eid = document.querySelector('#editid');
+    // name
+    var ename = document.querySelector('#editname');
+    // pw
+    var epw = document.querySelector('#editpw');
+    // repw
+    var erepw = document.querySelector('#editrepw');
+    // index
+    var idx = document.querySelector('#index');
+    
+    idx.value= index;
+    eid.value= members[index].userid;
+    ename.value= members[index].username;
+    epw.value= members[index].userpw;
+    erepw.value= members[index].userpw;
+    
+}
+
+function editMemberData(){
+    
+    // index
+    // id
+    // pw
+    // repw
+    // name
+        
+    // members[index] -> pw, name 수정
+    
+    // 회원 리스트 갱신
+    
+    
 }
 
 
-
-
+function editMemberClose(){
+    // 수정 화면 캐스팅
+    var editDiv = document.querySelector('div.edit_div');
+    editDiv.style.display='none';
+}
 
 
 
