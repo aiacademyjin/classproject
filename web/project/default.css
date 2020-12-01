@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Stylish', sans-serif;
-}
+ }
 
 /* 프로그램 타이틀 선택 */
 h1.header {
@@ -72,7 +72,69 @@ table.table td, table.table th {
     text-align: center;
 }
 
+div.edit_div {
+    
+    background-color: azure;
+    
+    width : 300px;
+    padding:10px;
+    
+    border: 1px solid #aaa;
+    border-radius: 10px;
+    
+    box-shadow: 5px 5px 5px #ddd;
+    
+    position: absolute;
+    
+    top: 50px;
+    left: 100px;
+    
+    
+    display: none;
+    
+    /*margin: 0 auto;*/
+}
 
+div.edit_div>div.edit_for_header {
+    overflow: hidden;
+    padding:5px;
+}
+
+div.edit_div>div.edit_for_header>h2 {
+    float: left;
+}
+
+div.edit_div>div.edit_for_header>a {
+    float:right;
+}
+
+#editform {
+    
+    margin: 5px;
+}
+
+#editform>table {
+    width:100%;
+}
+
+#editform>table td {
+    padding:5px;
+    text-align: center;
+}
+
+#editform input[type=submit] {
+    background-color: aquamarine;
+    padding: 10px;
+    width: 50%;
+    font-size: 1.2em;
+    font-family: 'Stylish', sans-serif;
+    font-weight: bold;
+    color: darkgreen;
+    
+    border: 1px solid darkgreen;
+    
+    
+}
 
 
 
