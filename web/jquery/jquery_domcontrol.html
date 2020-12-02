@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery 문서객체 컨트롤</title>
+    <!--jQuery 라이브러리 로드-->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    
+    <style>
+        
+        h1 {
+            border : 5px solid #DDD;
+        }
+        
+        .float_left {
+            float: left;
+            width : 32%;
+        }
+        
+        
+    </style>
+    
+    <script>
+        $(document).ready(function(){
+            
+            $('button').first().click(function(){
+                $('h1').addClass('float_left');
+                
+                $('img').attr('src', '../mini2.jpg');
+                
+            });
+            $('button').last().click(function(){
+                $('h1').removeClass('float_left');
+                
+                $('img').attr('src', '../mini1.jpg');
+                
+            });
+            
+            // 속성 값을 반환 : get -> attr('속성이름')
+            var img_path = $('img').attr('src');
+            console.log('image Path ->', img_path);
+            
+            // 속성 값을 설정 : set -> attr('속성이름', 속성값)
+            //$('img').attr('width', 200);
+            
+            // 속성 값을 설정 : set -> attr('속성이름', 함수())
+            // 함수의 반환 값은 속성에 적용할 데이터를 반환
+            /*$('img').attr('width',function(index){
+                // width 속성에 적용할 수 있는 숫자
+                return (index+1)*100;
+            });*/
+            
+            // 속성 값을 설정 : set -> attr({속성이름:속성값, 속성이름:속성값,...})
+            $('img').attr({
+                width: function(index){
+                    return (index+1)*100;
+                },  
+                height:100
+            });
+            
+            
+            
+            
+        });
+    </script>
+</head>
+
+<body>
+    
+    
+    <img src="../mini1.jpg">
+    <img src="../mini2.jpg">
+    <img src="../images/bb8.png">
+    
+    
+    
+    
+    
+    <h1>네이버</h1>
+    <h1>카카오</h1>
+    <h1>페이스북</h1>
+    
+    <button>변경</button><button>초기화</button>
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
