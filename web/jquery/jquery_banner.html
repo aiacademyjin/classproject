@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>베너 이미지</title>
+    <!--jQuery 라이브러리 로드-->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function() {
+
+            setInterval(function() {
+                $('img').first().appendTo('div');
+            }, 4000);
+
+
+        });
+    </script>
+
+    <style>
+        div {
+            width: 150px;
+            height: 150px;
+            
+            border: 2px solid #DDD;
+            
+            overflow: hidden;
+        }
+
+        img {
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <img src="../mini1.jpg">
+        <img src="../mini2.jpg">
+        <img src="../images/starwars1.gif">
+        <img src="../images/bb8.png">
+        
+    </div>
+</body></html>
+
+
+
+
+
+
+
+
+
+
+
