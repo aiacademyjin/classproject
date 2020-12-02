@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery 문서 탐색</title>
+    <!--jQuery 라이브러리 로드-->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    
+    <script>
+        $(document).ready(function() {
+            /*$('h3:even').css({
+                backgroundColor: 'black',
+                color: 'yellow'
+            });*/
+            /*$('h3').filter(':even').css({
+                backgroundColor: 'blue',
+                color: 'white'
+            });*/
+            
+            $('h3').filter(function(index){
+                return index%3==0;
+            }).css({
+                backgroundColor: 'red',
+                color: 'yellow'
+            });
+            
+            
+            // end(), filter를 이용한 선택의 한단계 위로 이동
+            //$('h1').filter(':even').end().css('color', 'green');
+            /*$('h1').css('background-color', 'orange').filter(':even').css('color','white').end().filter(':odd').css('color', 'red');*/
+            
+            $('h1').eq(1).css('background-color', 'orange');
+            
+            $('h1').first().css('background-color', 'red');
+            $('h1').last().css('background-color', 'red');
+            
+            $('h1').css('border', '5px solid #333').add('h3').css('float', 'left');
+            
+            
+            // <links>
+            //      <link>
+            //          <name>네이버</name>
+            //          <url>http://www.naver.com</url>
+            //      </link>
+            // </links>
+            
+            // xml 문서 구조의 문자열
+            var xmlStr = '';
+            xmlStr += '<links>';
+            xmlStr += '     <link>';
+            xmlStr += '         <name>네이버</name>';
+            xmlStr += '         <url>http://www.naver.com</url>';
+            xmlStr += '     </link>';
+            xmlStr += '     <link>';
+            xmlStr += '         <name>다음</name>';
+            xmlStr += '         <url>http://www.daum.net</url>';
+            xmlStr += '     </link>';
+            xmlStr += '     <link>';
+            xmlStr += '         <name> 카카오</name>';
+            xmlStr += '         <url>http://www.kakao.com</url>';
+            xmlStr += '     </link>';
+            xmlStr += '</links>';
+            
+            // 문자열 -> xml문서 객체
+            var xmlDoc = $.parseXML(xmlStr);
+            
+            // xml문서 객체 -> jQuery 객체 : find()
+            $(xmlDoc).find('link').each(function(index){
+                
+                var name = $(this).find('name').text();
+                var url = $(this).find('url').text();
+                
+                var html='';
+                html += '<div class="card">\n';
+                html += '   <h2>'+name+'</h2>\n';
+                html += '   <a href="'+url+'">방문하기</a>\n';
+                html += '</div>\n';
+                
+                $('body').html(html+$('body').html());
+                
+            });
+            
+            
+            
+            
+        });
+    </script>
+    
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        div.card{            
+            border: 1px solid #AAA;
+            width: 30%;
+            float: left;
+            margin: 5px;
+        }
+        div.card > h2 {
+            background-color: aqua;
+            color: blue;
+            text-align: center;
+        }
+        div.card > a {
+            height: 30px;
+            display: block;
+            text-align: center;
+            line-height: 30px;
+            
+            text-decoration: none;
+            color:aliceblue;
+            background-color: #333;
+        }
+    </style>
+    
+</head>
+
+<body>
+    
+    <h1>header1 - 0</h1>
+    <h1>header1 - 1</h1>
+    <h1>header1 - 2</h1>
+    <h1>header1 - 3</h1>
+    <h1>header1 - 4</h1>
+    <h1>header1 - 5</h1>
+    <h1>header1 - 6</h1>
+    
+    
+
+    <h3>header3 - 0</h3>
+    <h3>header3 - 1</h3>
+    <h3>header3 - 2</h3>
+    <h3>header3 - 3</h3>
+    <h3>header3 - 4</h3>
+    <h3>header3 - 5</h3>
+    <h3>header3 - 6</h3>
+
+
+</body></html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
