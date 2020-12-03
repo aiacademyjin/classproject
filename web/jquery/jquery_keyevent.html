@@ -14,23 +14,26 @@
             
             // 키보드 입력 이벤트
             $('textarea').keyup(function(){
-                
                 // 현재 입력 문자열의 길이
                 var inputStrLen = $(this).val().length;
-                
                 if(inputStrLen>50){
                     alert('50자 까지만 입력이 가능합니다.');
-                    
                     var userInput = $(this).val().substr(0,50);
-                    
                     $(this).val(userInput);
                     inputStrLen = 50;
                 }
-                
                 $('span').text(inputStrLen);
-                
             });
             
+            // 체크박스 이벤트 처리 : change() 메소드 사용
+            $('#check-all').change(function(){
+                if(this.checked){
+                    $('#check-item').children().prop('checked', true);
+                } else {
+                    $('#check-item').children().prop('checked', false);
+                }
+                
+            });
         });
     
     </script>
@@ -38,6 +41,19 @@
 </head>
 
 <body>
+    
+    개인정보활용 동의 <input type="checkbox" id="agree">
+    <br>
+    
+    <input type="checkbox" id="check-all">
+    <label for="check-all">전체선택</label>
+    <div id="check-item">
+        <input type="checkbox"> 게시물1 <br>
+        <input type="checkbox"> 게시물2 <br>
+        <input type="checkbox"> 게시물3 <br>
+        <input type="checkbox"> 게시물4 <br>
+        <input type="checkbox"> 게시물5 <br>
+    </div>
     
     <textarea rows="10" cols="30"></textarea>
     <h1> <span>0</span>/50</h1>
