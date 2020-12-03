@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Key Event</title>
+
+    <!--jquery 라이브러리 로드-->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    
+    <script>
+        
+        $(document).ready(function(){
+            
+            // 키보드 입력 이벤트
+            $('textarea').keyup(function(){
+                
+                // 현재 입력 문자열의 길이
+                var inputStrLen = $(this).val().length;
+                
+                if(inputStrLen>50){
+                    alert('50자 까지만 입력이 가능합니다.');
+                    
+                    var userInput = $(this).val().substr(0,50);
+                    
+                    $(this).val(userInput);
+                    inputStrLen = 50;
+                }
+                
+                $('span').text(inputStrLen);
+                
+            });
+            
+        });
+    
+    </script>
+    
+</head>
+
+<body>
+    
+    <textarea rows="10" cols="30"></textarea>
+    <h1> <span>0</span>/50</h1>
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
