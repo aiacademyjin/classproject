@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 연결 범위 한정</title>
+
+    <style>
+        h1 {
+            border : 3px solid #AAA;
+        }
+    </style>
+
+    <!--jquery 라이브러리 로드-->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    
+    <script>
+    
+        $(document).ready(function(){
+            
+            /*$('h1').click(function(){
+                
+                var length = $('h1').length;
+                var html = $(this).html();
+                
+                $('#wrap').append('<h1>'+length+' - '+html+'</h1>');
+                
+            });*/
+            
+            // 범위를 지정하고, 해당 범위안의 엘리먼트를 지정해서 이벤트 적용
+            // 해당 범위에 특정 엘리먼트가 추가되도 인벤트를 적용
+            $('#wrap').on('click', 'h1',function(){
+                
+                var length = $('h1').length;
+                var html = $(this).html();
+                
+                $('#wrap').append('<h1>'+length+' - '+html+'</h1>');
+                
+            });
+            
+            
+            
+        });
+    
+    </script>
+</head>
+
+<body>
+    
+    <div id="wrap">
+        <h1>Header</h1>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
