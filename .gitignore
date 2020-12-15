@@ -98,19 +98,6 @@ hs_err_pid*
 ## ignoring target file
 target/
 
-### Web ###
-*.asp
-*.cer
-*.csr
-*.css
-*.htm
-*.html
-*.js
-*.jsp
-*.php
-*.rss
-*.wasm
-*.wat
-*.xhtml
+
 
 # End of https://www.toptal.com/developers/gitignore/api/java,eclipse
