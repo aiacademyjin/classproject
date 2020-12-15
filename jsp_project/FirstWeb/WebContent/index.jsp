@@ -11,6 +11,7 @@
 	<ul>
 		<li><a href="/FirstWeb/test/now.jsp">/FirstWeb/test/now.jsp(절대경로)</a></li>
 		<li><a href="test/now.jsp">test/now.jsp(상대경로)</a></li>
+		<li><a href="test/msword.jsp">test/msword.jsp</a></li>
 	</ul>
 </body>
 </html>
