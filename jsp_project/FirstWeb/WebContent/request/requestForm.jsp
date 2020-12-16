@@ -11,7 +11,8 @@
 	<h1>Request Form</h1>
 	<hr>
 	
-	<form action="requestResult.jsp" method="get">
+	<!-- <form action="requestResult.jsp" method="get"> -->
+	<form action="result.jsp" method="get">
 		<table>
 			<tr>
 				<td>이름</td>
