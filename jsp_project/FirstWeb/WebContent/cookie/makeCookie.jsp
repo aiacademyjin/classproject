@@ -1,3 +1,4 @@
+<%@page import="util.CookieBox"%>
 <%@page import="java.net.URLDecoder"%>
 <%@page import="java.net.URLEncoder"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -9,7 +10,12 @@
 			response.addCookie(c1);
 			
 			Cookie c2 = new Cookie("userName", URLEncoder.encode("손흥민", "utf-8"));
+			c2.setMaxAge(60*20);
 			response.addCookie(c2);
+			
+			response.addCookie(CookieBox.createCookie("nicName", "SON"));
+			response.addCookie(CookieBox.createCookie("age", "20", "/", -1));
+			
 %>
 <!DOCTYPE html>
 <html>
