@@ -20,19 +20,51 @@
 		}
 		
 		
-		// beans 생성
-		Member member = new Member();
+		// session을 이용해서 로그인 처리
+		// id, pw 비교해서 같으면 로그인 성공, 다르면 실패
+		// 로그인 여부 체크
+		boolean loginChk = false;
 		
-		// 데이터 바인딩
-		member.setUserId(userId);
-		member.setPw(pw);
-		
-		//데이터 공유 : request의 속성을 이용
-		request.setAttribute("login", member);
+		if(userId.equals(pw)){
+			// 로그인 처리
+
+			// beans 생성
+			Member member = new Member();
+			
+			// 데이터 바인딩
+			member.setUserId(userId);
+			member.setPw(pw);
+			
+			//데이터 공유 : request의 속성을 이용
+			request.setAttribute("login", member);
+			
+			loginChk = true;
+			
+		} 
 		
 		// login_view.jsp로 포워딩
+		if(loginChk){
+%>
+<jsp:forward page="login_view.jsp"/>
+<%
+		} else {
+%>
+<script>
+	alert("아이디 또는 비밀번호가 틀립니다. 다시 로그인해주세요.");
+	history.go(-1);
+</script>
+<%
+		}
 %>
 
-<jsp:forward page="login_view.jsp"/>
+
+
+
+
+
+
+
+
+
 
 
