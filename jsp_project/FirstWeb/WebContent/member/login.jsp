@@ -38,6 +38,9 @@
 			//데이터 공유 : request의 속성을 이용
 			request.setAttribute("login", member);
 			
+			// 로그인 정보를 session 객체의 속성에 저장
+			session.setAttribute("loginInfo", member);
+			
 			loginChk = true;
 			
 		} 
