@@ -36,21 +36,19 @@
 			
 			// 인증이 되어 로그인 처리 : session 객체에 로그인 정보를 속성에 저장
 			//System.out.println(member);
-			
 			LoginInfo loginInfo = member.toLoginInfo();
-			System.out.println(loginInfo);
-		
+			
+			session.setAttribute("loginInfo", loginInfo);
+			
+			//System.out.println(loginInfo);
 			loginChk = true;
 			
-		} else {
-			
-		}
-		
+		} 		
 		
 		// login_view.jsp로 포워딩
 		if(loginChk){
 %>
-<jsp:forward page="login_view.jsp"/>
+<jsp:forward page="loginView.jsp"/>
 <%
 		} else {
 %>
