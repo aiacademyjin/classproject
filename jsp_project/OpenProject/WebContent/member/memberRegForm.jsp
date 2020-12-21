@@ -23,7 +23,7 @@
 		<h2 class="content_title">회원 가입 폼</h2>
 		<hr>
 		<div class="content">
-			<form action="regMember.jsp" method="post">
+			<form action="memberReg.jsp" method="post">
 				<table>
 					<tr>
 						<th><label for="userid">아이디(email)</label></th>
