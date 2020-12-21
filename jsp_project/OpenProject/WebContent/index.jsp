@@ -5,70 +5,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="styleSheet" href="<%= request.getContextPath() %>/css/default.css">
 <style>
-	* {
-		margin: 0;
-		padding: 0;
-	}
-	
-	body {
-		padding : 10px;
-	}
-	
-	header, nav, div.contents, footer   {
-		width : 800px;
-		margin : 0 auto;
-		background-color: #EEE;
-	}
-	
-	header {
-		padding : 10px 20px;
-	}
-	
-	nav>ul {		
-		overflow : hidden;	
-		list-style: none;
-	}
-	
-	nav>ul>li {
-		float: left;
-		padding : 5px 20px;		
-	}
-	
-	div.contents {
-		clear : both;
-	}
-	
-	div.contents>h2.content_title {
-		
-		padding : 10px;
-		
-	}
-	
-	hr {
-		border : 0;
-		border-top: 1px solid #DDD;
-	}
-	
-	
 </style>
 </head>
-<body>
+<body >
 
-	<header>
-		<h1 class="header_title">OPEN PROJECT</h1>
-	</header>
+
+	<%@ include file="/include/header.jsp"  %>
 		
-	<nav>
-		<ul>
-			<li> <a href="#">HOME</a>  </li>
-			<li> <a href="#">HOME</a>  </li>
-			<li> <a href="#">HOME</a>  </li>
-			<li> <a href="#">HOME</a>  </li>
-			<li> <a href="#">HOME</a>  </li>
-			<li> <a href="#">HOME</a>  </li>
-		</ul>
-	</nav>
+	<%@ include file="/include/nav.jsp"  %>
 	
 	<div class="contents">
 		<h2 class="content_title">index</h2>
@@ -78,10 +24,8 @@
 		</div>
 	</div>
 	
-	
-	<footer>
-		copyright @aiaacademy 2020
-	</footer>
+	<%@ include file="/include/footer.jsp" %>
+
 	
 	
 	
