@@ -50,6 +50,12 @@ public class Member {
 	public void setUserPhoto(String userPhoto) {
 		this.userPhoto = userPhoto;
 	}
+	
+	// Member -> LoginInfo
+	public LoginInfo toLoginInfo() {		
+		return new LoginInfo(this.userId, this.userName, this.userPhoto);
+	}
+	
 
 	@Override
 	public String toString() {
