@@ -36,6 +36,15 @@
 			0입니다.
 		</c:otherwise>
 	</c:choose>
+	
+	<br>
+	
+	<input type="checkbox" ${msg eq 'user1'?'checked':''} >
+	
+	<br>
+	id 저장 <input type="checkbox" ${cookie.uid ne null ? 'checked' : '' } >
+	
+	
 
 
 </body>

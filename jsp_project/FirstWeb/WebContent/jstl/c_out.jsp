@@ -14,13 +14,19 @@
 	
 	<table border="1">
 		<tr>
+			<th>index</th>
+			<th>count</th>
 			<th>아이디</th>
 			<th>비밀번호</th>
 			<th>이름</th>
 			<th>사진</th>
 		<tr>
-		<c:forEach items="${members}" var="member">
+		
+		<!-- index, count -->
+		<c:forEach items="${members}" var="member" varStatus="status">
 		<tr>
+			<td>${status.index}</td>
+			<td>${status.count}</td>
 			<td>${member.userId}</td>
 			<td>${member.pw}</td>
 			<td>${member.userName}</td>
@@ -30,9 +36,14 @@
 					</c:out>
 			</td>
 		</tr>
+		
 		</c:forEach>
 	</table>
 	
+	<br>
+	<c:forEach var="num" begin="1" end="10" step="3">
+		${num} <br>
+	</c:forEach>
 	
 	
 	
