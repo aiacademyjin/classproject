@@ -13,7 +13,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="styleSheet"
-	href="<%=request.getContextPath()%>/css/default.css">
+	href="${pageContext.request.contextPath}/css/default.css">
 <style>
 </style>
 </head>

@@ -24,7 +24,8 @@
             <tr>
                 <th><label for="userid">아이디</label></th>
                 <td>
-                    <input type="text" id="userid" name="userid" value="<%= saveId%>">
+                    <%-- <input type="text" id="userid" name="userid" value="<%= saveId%>"> --%>
+                    <input type="text" id="userid" name="userid" value="${cookie.uid.value}">
                 </td>
             </tr>
             <tr>

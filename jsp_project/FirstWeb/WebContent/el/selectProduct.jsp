@@ -9,6 +9,6 @@
 <body>
 	1. 선택한 상품 : ${param.sel} <br>
 	2. 상품 설명 : ${product.display}  ==> product.getDisplay()<br>
-
+	3. 상품 : ${product.productList[2]}
 </body>
 </html>
