@@ -10,6 +10,10 @@
   <servlet>
   	<servlet-name>Loader</servlet-name>
   	<servlet-class>jdbc.Loader</servlet-class>
+  	<init-param>
+  		<param-name>driver</param-name>
+  		<param-value>com.mysql.cj.jdbc.Driver</param-value>
+  	</init-param>
   	<load-on-startup>1</load-on-startup>
   </servlet>
 
@@ -25,10 +29,24 @@
 		<url-pattern>/member/mypage/*</url-pattern>
 	</filter-mapping>
 	
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>utf-8</param-value>
+		</init-param>
+	</filter>
 	
+	<!-- 컨텍스트 파라미터 등록 -->
+	<context-param>
+		<param-name>jdbcDriver</param-name>
+		<param-value>com.mysql.cj.jdbc.Driver</param-value>
+	</context-param>
 	
-	
-	
+	<listener>
+		<listener-class>listener.DBCPInitListener</listener-class>
+	</listener>
 	
 	
 	
