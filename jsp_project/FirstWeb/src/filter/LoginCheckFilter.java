@@ -17,22 +17,21 @@ public class LoginCheckFilter implements Filter {
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
+		
+		System.out.println("LoginCheckFilter 실행");
 
 		// 로그인이 여부 확인하는 Filter
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
 		HttpSession session = httpRequest.getSession();
 
-		//boolean loginCheck = false;
-		
-		if(session!=null && session.getAttribute("loginInfo")!=null) {
+		// boolean loginCheck = false;
+
+		if (session != null && session.getAttribute("loginInfo") != null) {
 			chain.doFilter(request, response);
 		} else {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/member/loginForm.html");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/member/loginForm.jsp");
 			dispatcher.forward(request, response);
 		}
-		
-		
-			
 
 	}
 
