@@ -78,7 +78,7 @@
 							// mini.jpg		--> {"mini","jpg"}	
 							// 새로운 파일 이름 : 중복하는 파일의 이름이 있으면 덮어쓴다 -> 
 							System.out.println(item.getName());
-							String newFileName = System.nanoTime()+"";//+"."+item.getName().split(".")[1] ;
+							String newFileName = System.nanoTime()+"."+item.getName().split("\\.")[1] ;
 							
 							// 파일 저장
 							item.write(new File(saveFilePath, newFileName));
