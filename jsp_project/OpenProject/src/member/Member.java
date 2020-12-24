@@ -1,5 +1,8 @@
 package member;
 
+import java.sql.Timestamp;
+import java.util.Date;
+
 // 회원 정보를 저장하는 beans 클래스 정의
 public class Member {
 	
@@ -8,16 +11,19 @@ public class Member {
 	private String password;
 	private String userName;
 	private String userPhoto;
+	private Timestamp regDate;
 	
 	// 기본 생성자 필수
 	public Member() {}
-
-	public Member(String userId, String password, String userName, String userPhoto) {
+	
+	public Member(String userId, String password, String userName, String userPhoto, Timestamp regDate) {
 		this.userId = userId;
 		this.password = password;
 		this.userName = userName;
 		this.userPhoto = userPhoto;
+		this.regDate = regDate;
 	}
+
 
 	public String getUserId() {
 		return userId;
@@ -54,6 +60,19 @@ public class Member {
 	// Member -> LoginInfo
 	public LoginInfo toLoginInfo() {		
 		return new LoginInfo(this.userId, this.userName, this.userPhoto);
+	}
+
+	public Timestamp getRegDate() {
+		return regDate;
+	}
+
+	public void setRegDate(Timestamp regDate) {
+		this.regDate = regDate;
+	}
+	
+	// ${member.date} : TimeStamp -> java.util.Date
+	public Date getDate() {  
+		return new Date(regDate.getTime());
 	}
 	
 
