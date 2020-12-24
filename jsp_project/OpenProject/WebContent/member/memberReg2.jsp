@@ -28,6 +28,10 @@
 		String pw = null;
 		String userName = null;
 		String userPhoto = null;
+		
+		//   /upload/member
+		String dir = request.getSession().getServletContext().getRealPath("/upload/member");
+		
 
 		// FileUpload 라이브러리를 이용해서 DB에 입력할 데이터를 받아와야한다.
 		if (ServletFileUpload.isMultipartContent(request)) {
@@ -48,21 +52,19 @@
 						String fName = item.getFieldName();
 						
 						if (fName.equals("userid")) {
-							userId = item.getString("urf-8");
+							userId = item.getString("utf-8");
 						}
 						if (fName.equals("pw")) {
-							pw = item.getString("urf-8");
+							pw = item.getString("utf-8");
 						}
 						if (fName.equals("username")) {
-							userName = item.getString("urf-8");
+							userName = item.getString("utf-8");
 						}
 						
 					} else { // file 필드
 						
 						if(item.getFieldName().equals("userPhoto") && !item.getName().isEmpty() && item.getSize()>0){
 							
-							//   /upload/member
-							String dir = request.getSession().getServletContext().getRealPath("/upload/member");
 							
 							// 경로 저장하는 File 객체를 생성
 							File saveFilePath = new File(dir);
@@ -72,14 +74,15 @@
 								saveFilePath.mkdir();
 							}
 							
-							
 							// a 사용자가 photo.jpg    b 사용자가 photo.jpg
 							// mini.jpg		--> {"mini","jpg"}	
 							// 새로운 파일 이름 : 중복하는 파일의 이름이 있으면 덮어쓴다 -> 
-							String newFileName = System.nanoTime()+"."+item.getName().split(".")[1] ;
+							System.out.println(item.getName());
+							String newFileName = System.nanoTime()+"";//+"."+item.getName().split(".")[1] ;
 							
 							// 파일 저장
 							item.write(new File(saveFilePath, newFileName));
+							// DB 에 저장할 파일 이름
 							userPhoto = newFileName;
 						}
 				}
@@ -93,8 +96,20 @@
 
 		System.out.println(member);
 
-		// DB에 데이터 저장
-		result = dao.insertMember(conn, member);
+		try{
+			// DB에 데이터 저장
+			result = dao.insertMember(conn, member);  
+			// SQLException -> DB 저장 안된다. 하지만 파일은 이미 저장이 되어있다.
+		} catch(Exception e){
+			System.out.println("예외~!!!!");
+			File delFile = new File(dir, userPhoto);
+			System.out.println(delFile.exists());
+			if(delFile.exists()){
+				// 파일을 삭제
+				delFile.delete();
+			}
+			
+		}
 
 	}
 

@@ -29,7 +29,7 @@ public class MemberDao {
 	// insert, select, update, delete
 	
 	// 데이터 입력
-	public int insertMember(Connection conn, Member member) {
+	public int insertMember(Connection conn, Member member) throws SQLException {
 		
 		int resultCnt = 0;
 		
@@ -37,7 +37,7 @@ public class MemberDao {
 		
 		String sqlInsert = "INSERT INTO member (memberid, password, membername, memberphoto) VALUES (?,?,?,?)";
 		
-		try {
+		/* try { */
 			pstmt = conn.prepareStatement(sqlInsert);
 			pstmt.setString(1, member.getUserId());
 			pstmt.setString(2, member.getPassword());
@@ -46,9 +46,9 @@ public class MemberDao {
 			
 			resultCnt = pstmt.executeUpdate();
 			
-		} catch (SQLException e) {
+/*		} catch (SQLException e) {
 			e.printStackTrace();
-		}
+		}*/
 		
 		return resultCnt;
 	}
