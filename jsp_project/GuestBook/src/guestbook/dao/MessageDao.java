@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 import guestbook.model.Message;
 import jdbc.JdbcUtil;
@@ -64,6 +65,49 @@ public class MessageDao {
 		}
 
 		return totalCnt;
+	}
+
+	public List<Message> selectList(
+			Connection conn, 
+			int firstRow, 
+			int messageCountPerPage) throws SQLException {
+		
+		List<Message> list = null;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select * from guestbook_message order by message_id desc limit ?, ?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, firstRow);
+			pstmt.setInt(2, messageCountPerPage);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				list.add(makeMessage(rs));
+			}
+			
+		} finally {
+			
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+			
+		}
+		return list;
+	}
+	
+	private Message makeMessage(ResultSet rs) throws SQLException {
+		
+		Message message = new Message();
+		message.setId(rs.getInt(1));
+		message.setGuestName(rs.getString(2));
+		message.setPassword(rs.getString(3));
+		message.setMessage(rs.getString(4));
+		message.setWritedate(rs.getTimestamp(5));
+		return message;
 	}
 
 }

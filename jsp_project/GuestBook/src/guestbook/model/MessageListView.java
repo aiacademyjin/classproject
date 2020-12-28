@@ -4,7 +4,7 @@ import java.util.List;
 
 public class MessageListView {
 
-	private int messageTotalCount;	// 게시물의 전체 개수 -> 페이지 개수
+	private int messageTotalCount;	// 게시물의 전체 개수 -> 페이지 개수 
 	private int currentPageNumber;	// 현재 페이지 번호 : List<Message>
 	private List<Message> messageList;	// 페이지 번호에 맞는 게시물의 리스트 3개씩
 	private int pageTotalCount;		// 페이지의 개수
