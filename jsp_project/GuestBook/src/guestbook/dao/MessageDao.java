@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import guestbook.model.Message;
@@ -72,7 +73,7 @@ public class MessageDao {
 			int firstRow, 
 			int messageCountPerPage) throws SQLException {
 		
-		List<Message> list = null;
+		List<Message> list = new ArrayList<Message>();
 		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
