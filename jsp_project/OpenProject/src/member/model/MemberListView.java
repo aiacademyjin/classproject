@@ -26,7 +26,9 @@ public class MemberListView {
 			pageTotalCount = 0;
 		} else {
 			pageTotalCount = memberTotalCount / memberCountPerPage;
-			pageTotalCount = memberTotalCount % memberCountPerPage > 0 ? pageTotalCount++ : pageTotalCount;
+			pageTotalCount = memberTotalCount % memberCountPerPage > 0 ? ++pageTotalCount : pageTotalCount;
+			// pageTotalCount = pageTotalCount++
+			
 		}
 	}
 

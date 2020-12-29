@@ -60,6 +60,14 @@
 				
 				
 			</table>
+			
+			<div class="paging">
+			
+			<c:forEach var="num" begin="1" end="${listView.pageTotalCount}">
+			[ <a href="memberList.jsp?page=${num}">${num}</a> ]
+			</c:forEach>
+			
+			</div>
 
 
 
