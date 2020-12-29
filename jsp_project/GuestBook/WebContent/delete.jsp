@@ -1,3 +1,6 @@
+<%@page import="guestbook.exception.InvalidMessagePasswordException"%>
+<%@page import="guestbook.exception.MessageNotFoundexception"%>
+<%@page import="java.sql.SQLException"%>
 <%@page import="guestbook.service.DeleteMessageService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -13,8 +16,12 @@
 	
 	try{
 		int result = service.deleteMessage(Integer.parseInt(messageId), pw);
-	} catch (Exception e){
-		msg = e.getMessage();
+	} catch (SQLException e){
+		msg = "삭제하는 도중 문제가 발생했습니다. 다시 시도해주세요.";
+	} catch (MessageNotFoundexception e){
+		msg = "게시물이 존재하지 않습니다.";
+	} catch (InvalidMessagePasswordException e){
+		msg = e.getMessage() ;
 	}
 	
 	request.setAttribute("resultMsg", msg);	
