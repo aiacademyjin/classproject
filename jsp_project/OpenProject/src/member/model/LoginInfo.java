@@ -1,4 +1,4 @@
-package member;
+package member.model;
 
 public class LoginInfo {
 	

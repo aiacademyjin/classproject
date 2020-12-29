@@ -24,7 +24,7 @@
 		<hr>
 		<div class="content">
 		
-			<form action="memberReg2.jsp" method="post" enctype="multipart/form-data">
+			<form action="memberReg3.jsp" method="post" enctype="multipart/form-data">
 				<table>
 					<tr>
 						<th><label for="userid">아이디(email)</label></th>

@@ -1,9 +1,9 @@
-<%@page import="member.LoginInfo"%>
+<%@page import="member.model.LoginInfo"%>
 <%@page import="jdbc.ConnectionProvider"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="member.dao.MemberDao"%>
 <%@page import="util.CookieBox"%>
-<%@page import="member.Member"%>
+<%@page import="member.model.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%

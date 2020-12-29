@@ -1,4 +1,4 @@
-<%@page import="member.Member"%>
+<%@page import="member.model.Member"%>
 <%@page import="java.util.List"%>
 <%@page import="jdbc.ConnectionProvider"%>
 <%@page import="java.sql.Connection"%>

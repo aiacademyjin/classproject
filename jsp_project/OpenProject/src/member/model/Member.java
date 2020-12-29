@@ -1,4 +1,4 @@
-package member;
+package member.model;
 
 import java.sql.Timestamp;
 import java.util.Date;
