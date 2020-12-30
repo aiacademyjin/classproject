@@ -1,3 +1,5 @@
 ## 메인페이지
 #/=mvc.command.IndexCommand
 /index.do=mvc.command.IndexCommand
+/member/loginForm.do=mvc.command.LoginFormCommand
+/member/login.do=mvc.command.LoginCommand

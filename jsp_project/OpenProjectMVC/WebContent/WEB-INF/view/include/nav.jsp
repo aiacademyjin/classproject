@@ -9,7 +9,7 @@
 				<%
 					if(session.getAttribute("loginInfo")==null){
 				%>		
-			 <a href="<c:url value="/member/loginForm.jsp"/>">LOGIN</a>  
+			 <a href="<c:url value="/member/loginForm.do"/>">LOGIN</a>  
 			 <%
 					} else {
 			 %>
