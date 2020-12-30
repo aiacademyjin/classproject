@@ -20,6 +20,10 @@
   <servlet>
   	<servlet-name>FrontController</servlet-name>
   	<servlet-class>mvc.controller.FrontController</servlet-class>
+  	<init-param>
+  		<param-name>configPath</param-name>
+  		<param-value>/WEB-INF/command.propertise</param-value>
+  	</init-param>
   	<load-on-startup>1</load-on-startup>
   </servlet>
   

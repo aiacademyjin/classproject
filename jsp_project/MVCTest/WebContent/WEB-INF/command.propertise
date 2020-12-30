@@ -1,0 +1,6 @@
+## 메인페이지
+/=mvc.command.GreetingCommand
+/greeting=mvc.command.GreetingCommand
+/date=mvc.command.DateCommand
+/member/login=mvc.command.MemberLoginCommand
+/member/regform=mvc.command.MemberRegCommand
