@@ -2,6 +2,8 @@ package mvc.controller;
 
 import java.io.IOException;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,7 +11,28 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import mvc.command.Command;
+import mvc.command.DateCommand;
+import mvc.command.GreetingCommand;
+import mvc.command.InvalidCommand;
+import mvc.command.MemberLoginCommand;
+
 public class FrontController extends HttpServlet {
+	
+	// Map<String, Command> -> 요청 uri, Command 클래스를 상속하는 객체
+	private Map<String, Command> commands;
+
+	@Override
+	public void init() throws ServletException {
+		
+		commands = new HashMap<String, Command>();
+		
+		commands.put("/", new GreetingCommand());
+		commands.put("/greeting", new GreetingCommand());
+		commands.put("/date", new DateCommand());
+		commands.put("/member/login", new MemberLoginCommand());
+		
+	}
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -38,23 +61,17 @@ public class FrontController extends HttpServlet {
 		System.out.println(command);
 		
 		// 요청에 맞는 기능 실행 -> 결과 데이터를 생성
-		Object resultObj = null;
+		//Object resultObj = null;
 		
-		if(command.equals("/greeting") | command.equals("/")) {
-			resultObj = "환영합니다.";
-		} else if(command.equals("/date")) {
-			resultObj = new Date();
-		} else if(command.equals("/member/login")) {
-			resultObj = "로그인 페이지입니다.";
-		} else {
-			resultObj = "잘못된 요청 경로입니다. 확인 후 다시 시도해주세요.";
+		Command cmd = commands.get(command);
+		
+		if(cmd==null) {
+			cmd = new InvalidCommand();
 		}
-		
-		// request의 속성에 결과 데이터를 저장
-		request.setAttribute("result", resultObj);
+		String viewPage = cmd.getViewPage(request, response);
 		
 		// 응답을 위한 View 페이지로 포워딩
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/simpleView.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);
 		
 	}

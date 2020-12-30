@@ -20,6 +20,7 @@
   <servlet>
   	<servlet-name>FrontController</servlet-name>
   	<servlet-class>mvc.controller.FrontController</servlet-class>
+  	<load-on-startup>1</load-on-startup>
   </servlet>
   
   <servlet-mapping>
