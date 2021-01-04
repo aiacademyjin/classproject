@@ -20,7 +20,7 @@
 		<hr>
 		<div class="content"> 
 			<form action="<c:url value="/member/login.do"/>" method="post">
-				<table>
+				<table> 
 					<tr>
 						<th><label for="userid">아이디</label></th>
 						<td><input type="text" id="userid" name="userid"
