@@ -12,7 +12,20 @@
 	$(document).ready(function(){
 		//alert('onload');
 		
-		$('#idChkBtn').click(function(){
+		$('#uid').focusin(function(){
+			
+			//alert('focusin');
+			//$('#msg').html('사용할수 있는 아이디 입니다.');
+			$('#msg').addClass('display_none');
+			
+			$('#msg').removeClass('color_blue');
+			$('#msg').removeClass('color_red');
+			
+		});
+		
+		
+		//$('#idChkBtn').click(function(){
+		$('#uid').focusout(function(){
 			
 			$.ajax({
 				url : 'idcheck.jsp',
