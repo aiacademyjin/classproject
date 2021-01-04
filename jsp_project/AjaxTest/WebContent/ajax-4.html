@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<!-- Jquery SDK 로드 -->
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+<script>
+
+	$(document).ready(function(){
+		//alert('onload');
+		
+		$('#idChkBtn').click(function(){
+			
+			$.ajax({
+				url : 'idcheck.jsp',
+				type : 'post',
+				data : {
+					uid: $('#uid').val()
+				}, 
+				beforeSend : function(){
+					console.log('beforeSend');
+					$('#loaddingImg').removeClass('display_none');
+				},
+				success : function(data){
+					
+					//alert(data);
+					if(data == 'Y') {						
+						$('#msg').html('사용할수 있는 아이디 입니다.');
+						$('#msg').removeClass('display_none');
+						$('#msg').addClass('color_blue');
+					} else {
+						$('#msg').html('사용할수 없는 아이디 입니다.');
+						$('#msg').removeClass('display_none');
+						$('#msg').addClass('color_red');
+					}
+					
+					
+				},
+				error : function(request, status, error){
+					console.log('request', request);
+					console.log('status', status);
+					console.log('error', error);
+				},
+				complete : function(){
+					
+					//setTimeout(function(){
+						$('#loaddingImg').addClass('display_none');
+					//}, 3000);
+					
+				}
+			});
+			
+		});
+		
+	});
+
+</script>
+
+<style>
+	
+	.display_none {
+		display: none;
+	}
+	
+	.display_block {
+		display: block;
+	}
+	
+	.color_red {
+		color : red;
+	}
+	.color_blue {
+		color: blue;
+	}
+	
+	/* #msg {
+		display: none;
+	} */
+	 
+</style>
+</head>
+<body>
+
+	id <input type="text" id="uid"> 
+	<input type="button" id="idChkBtn" value="아이디 체크">
+	<div id="msg"  class="display_none"></div>
+	<img id="loaddingImg" class="display_none" alt="loadding" src="loading.gif">
+ 
+</body>
+</html>
+
+
+
+
+
