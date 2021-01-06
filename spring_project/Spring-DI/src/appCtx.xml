@@ -10,9 +10,43 @@
 	></bean>
 	
 	<!-- MemberRegService Bean으로 등록 -->
-	<bean 
+	<!-- <bean 
 				id="memberRegService"
 				class="member.service.MemberRegService"
-	/>
+	/> -->
+	
+	<bean id="memberRegService"
+				class="member.service.MemberRegService"
+	 > 
+	 
+	 	<!-- <constructor-arg ref="memberDao"/> -->
+	 	<constructor-arg>
+	 		<ref bean="memberDao"/>
+	 	</constructor-arg>
+	
+	</bean>
+	
+	<!-- MemberInfoService Bean 등록 -->
+	<bean id="memberInfoService"
+				class="member.service.MemberInfoService"
+	>
+	
+		<!-- <property name="dao"  ref="memberDao" /> -->
+		
+		<property name="dao">
+			<ref bean="memberDao"/>
+		</property>
+		
+	
+	</bean>
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 </beans>

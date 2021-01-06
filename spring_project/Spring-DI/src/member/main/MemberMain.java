@@ -2,6 +2,7 @@ package member.main;
 
 import org.springframework.context.support.GenericXmlApplicationContext;
 
+import member.service.MemberInfoService;
 import member.service.MemberRegService;
 
 public class MemberMain {
@@ -16,10 +17,14 @@ public class MemberMain {
 		// 2. MemberRegService 객체가 필요
 		MemberRegService regService = ctx.getBean("memberRegService", MemberRegService.class);
 		
-		
 		// 3. MemberRegService -> process() 실행
 		regService.process();
 		
+		// 4. MemberInforService 객체 
+		MemberInfoService infoService = ctx.getBean("memberInfoService", MemberInfoService.class);
+		
+		// 5. MemberInforService -> process()
+		infoService.process();
 
 	}
 
