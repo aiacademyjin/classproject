@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- MemberDao Bean(인스턴스)으로 등록 -->
+	<bean 
+				id="memberDao"
+				class="member.dao.MemberDao"
+	></bean>
+	
+	<!-- MemberRegService Bean으로 등록 -->
+	<!-- <bean 
+				id="memberRegService"
+				class="member.service.MemberRegService"
+	/> -->
+	
+	<bean id="memberRegService"
+				class="member.service.MemberRegService"
+	 > 
+	 
+	 	<!-- <constructor-arg ref="memberDao"/> -->
+	 	<constructor-arg>
+	 		<ref bean="memberDao"/>
+	 	</constructor-arg>
+	
+	</bean>
+	
+	<!-- MemberInfoService Bean 등록 -->
+	<bean id="memberInfoService"
+				class="member.service.MemberInfoService"
+	>
+		<!-- <property name="dao"  ref="memberDao" /> -->
+		<property name="dao">
+			<bean class="member.dao.MemberDao"/>
+		</property>
+	</bean>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+</beans>

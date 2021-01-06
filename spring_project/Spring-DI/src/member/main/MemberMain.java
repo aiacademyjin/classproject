@@ -10,8 +10,14 @@ public class MemberMain {
 	public static void main(String[] args) {
 		
 		// 1. Spring 컨테이너 생성
+//		GenericXmlApplicationContext ctx = 
+//				new GenericXmlApplicationContext("classpath:appCtx.xml");
+//		GenericXmlApplicationContext ctx = 
+//				new GenericXmlApplicationContext("classpath:appCtx2.xml");
+//		GenericXmlApplicationContext ctx = 
+//				new GenericXmlApplicationContext("classpath:appCtx3.xml");
 		GenericXmlApplicationContext ctx = 
-				new GenericXmlApplicationContext("classpath:appCtx.xml");
+				new GenericXmlApplicationContext("classpath:appCtx4.xml");
 				
 		
 		// 2. MemberRegService 객체가 필요
