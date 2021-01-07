@@ -21,6 +21,10 @@
 			<c:url value="/member/search" var="search"/>
 			<a href="${search}">${search}</a>
 		</li>
+		<li>
+			<c:url value="/order/order" var="order"/>
+			<a href="${order}">${order}</a>
+		</li>
 	</ul>
 
 
