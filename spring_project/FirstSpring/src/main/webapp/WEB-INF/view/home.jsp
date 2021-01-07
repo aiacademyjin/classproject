@@ -13,6 +13,10 @@
 			<c:url value="/hello" var="hello"/>
 			<a href="${hello}">${hello}</a>
 		</li>
+		<li>
+			<c:url value="/member/login" var="login"/>
+			<a href="${login}">${login}</a>
+		</li>
 	</ul>
 
 
