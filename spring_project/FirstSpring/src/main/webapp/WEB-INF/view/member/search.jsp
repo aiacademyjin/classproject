@@ -4,13 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Login Page</title>
+<title>Insert title here</title>
 </head>
 <body>
-
-	<h1>id: ${uid}, pw: ${pw}</h1>
-	<h1>id: ${userId}, pw: ${userPw}</h1>
-	<h1>id: ${loginRequest.uid}, pw: ${loginRequest.pw}</h1>
-
+	<h1>회원 검색</h1>
 </body>
 </html>

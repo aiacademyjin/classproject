@@ -17,6 +17,10 @@
 			<c:url value="/member/login" var="login"/>
 			<a href="${login}">${login}</a>
 		</li>
+		<li>
+			<c:url value="/member/search" var="search"/>
+			<a href="${search}">${search}</a>
+		</li>
 	</ul>
 
 
