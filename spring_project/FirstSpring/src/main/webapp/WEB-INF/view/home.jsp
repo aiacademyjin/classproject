@@ -18,12 +18,28 @@
 			<a href="${login}">${login}</a>
 		</li>
 		<li>
-			<c:url value="/member/search" var="search"/>
-			<a href="${search}">${search}</a>
+			<c:url value="/member/search" var="membersearch"/>
+			<a href="${membersearch}">${membersearch}</a>
 		</li>
 		<li>
 			<c:url value="/order/order" var="order"/>
 			<a href="${order}">${order}</a>
+		</li>
+		<li>
+			<c:url value="/cookie/make" var="cookieMake"/>
+			<a href="${cookieMake}">${cookieMake}</a>
+		</li>
+		<li>
+			<c:url value="/cookie/view" var="cookieView"/>
+			<a href="${cookieView}">${cookieView}</a>
+		</li>
+		<li>
+			<c:url value="/header/header" var="header_url"/>
+			<a href="${header_url}">${header_url}</a>
+		</li>
+		<li>
+			<c:url value="/search/search" var="search"/>
+			<a href="${search}">${search}</a>
 		</li>
 	</ul>
 
