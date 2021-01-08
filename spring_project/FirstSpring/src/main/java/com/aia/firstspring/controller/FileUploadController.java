@@ -47,12 +47,17 @@ public class FileUploadController {
 	public String upload2(
 			MultipartHttpServletRequest request,
 			Model model
-			) {
+			) throws IllegalStateException, IOException {
 		
 		String sn = request.getParameter("sn");
 		MultipartFile report = request.getFile("report");
 		
 		System.out.println(report.getOriginalFilename());
+		
+		// 파일 업로드
+		report.transferTo(getFile(request, URI, report.getOriginalFilename()));
+		
+		
 		
 		model.addAttribute("sno", sn);
 		model.addAttribute("reportFile", report.getOriginalFilename());
@@ -65,13 +70,17 @@ public class FileUploadController {
 	@RequestMapping("/upload/upload3")
 	public String upload3(
 			ReportUploadRequest uploadRequest,
-			Model model
-			) {
+			Model model,
+			HttpServletRequest request
+			) throws IllegalStateException, IOException {
 		
 		System.out.println(uploadRequest.getReport().getOriginalFilename());
 		
 		model.addAttribute("sno", uploadRequest.getSn());
 		model.addAttribute("reportFile", uploadRequest.getReport().getOriginalFilename());
+		
+		uploadRequest.getReport().transferTo(getFile(request, URI, uploadRequest.getReport().getOriginalFilename()));
+		
 		
 		return "upload/uploadComplete";
 	}
