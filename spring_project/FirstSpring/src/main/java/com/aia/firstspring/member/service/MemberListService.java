@@ -22,4 +22,15 @@ public class MemberListService {
 		return dao.selectMemberList();
 	}
 	
+	public int getmemberTotalCount() {
+		return dao.selectTotalCount();
+	}
+	
 }
+
+
+
+
+
+
+

@@ -7,7 +7,7 @@ public class Member {
 
 	private int idx;
 	private String memberid;
-	private String paswsword;
+	private String password;
 	private String membername;
 	private String memberphoto;
 	private Timestamp regdate;
@@ -28,12 +28,12 @@ public class Member {
 		this.memberid = memberid;
 	}
 
-	public String getPaswsword() {
-		return paswsword;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setPaswsword(String paswsword) {
-		this.paswsword = paswsword;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public String getMembername() {
@@ -66,7 +66,7 @@ public class Member {
 
 	@Override
 	public String toString() {
-		return "Member [idx=" + idx + ", memberid=" + memberid + ", paswsword=" + paswsword + ", membername="
+		return "Member [idx=" + idx + ", memberid=" + memberid + ", password=" + password + ", membername="
 				+ membername + ", memberphoto=" + memberphoto + ", regdate=" + regdate + "]";
 	}
 

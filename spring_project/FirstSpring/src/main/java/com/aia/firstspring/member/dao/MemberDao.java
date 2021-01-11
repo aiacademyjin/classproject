@@ -37,7 +37,8 @@ public class MemberDao {
 				member.setIdx(rs.getInt("idx"));
 				member.setMemberid(rs.getString("memberid"));
 				member.setMembername(rs.getString("membername"));
-				member.setPaswsword(rs.getString("password"));
+				member.setPassword(rs.getString("password"));
+				member.setMemberphoto(rs.getString("memberphoto"));
 				member.setRegdate(rs.getTimestamp("regdate"));
 				return member;
 			}
@@ -46,5 +47,29 @@ public class MemberDao {
 
 		);
 	}
+	
+	
+	public int selectTotalCount() {
+		return template.queryForObject("select count(*) from member", Integer.class);
+	}
+	
+	public int insertMember(Member member) {
+		
+		String sql = "insert into member (memberid, membername, password) values(?,?,?)";
+		return template.update(sql, member.getMemberid(), member.getMembername(), member.getPassword());
+		
+	}
+	
+	
 
 }
+
+
+
+
+
+
+
+
+
+

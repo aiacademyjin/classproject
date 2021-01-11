@@ -18,6 +18,7 @@ public class MemberListController {
 		
 		
 		model.addAttribute("members", listService.getMemberList());
+		model.addAttribute("memberCnt", listService.getmemberTotalCount());
 		
 		
 		return "member/list";
