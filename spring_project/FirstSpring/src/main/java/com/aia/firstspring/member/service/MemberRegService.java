@@ -14,7 +14,14 @@ public class MemberRegService {
 	
 	
 	public int insertMember(Member member) {
-		return dao.insertMember(member);
+		int result = 0;
+		try {
+			result = dao.insertMember(member);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+				
+		return result;
 	}
 	
 	

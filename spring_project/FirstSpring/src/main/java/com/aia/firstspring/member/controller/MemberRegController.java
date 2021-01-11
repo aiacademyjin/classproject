@@ -24,9 +24,17 @@ public class MemberRegController {
 	@RequestMapping(method = RequestMethod.POST)
 	public String memberReg(Member member, Model model) {
 		
-		model.addAttribute("resultCnt", regService.insertMember(member));
+		int resultCnt = regService.insertMember(member);
 		
-		return "member/reg";
+		model.addAttribute("resultCnt", resultCnt);
+		
+		String view = "member/reg";
+		
+		if(resultCnt==1) {
+			view = "redirect:/member/list";
+		}
+		
+		return view;
 	}
 	
 
