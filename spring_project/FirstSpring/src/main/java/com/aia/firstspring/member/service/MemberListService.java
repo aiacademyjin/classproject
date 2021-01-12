@@ -6,13 +6,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.aia.firstspring.member.dao.MemberDao;
+import com.aia.firstspring.member.dao.MybatisMemberDao;
 import com.aia.firstspring.member.domain.Member;
 
 @Service
 public class MemberListService {
 	
+//	@Autowired
+//	MemberDao dao;
+	
 	@Autowired
-	MemberDao dao;
+	MybatisMemberDao dao;
 	
 //	public MemberListService(MemberDao dao) {
 //		this.dao=dao;
@@ -23,7 +27,8 @@ public class MemberListService {
 	}
 	
 	public int getmemberTotalCount() {
-		return dao.selectTotalCount();
+		//return dao.selectTotalCount();
+		return 0;
 	}
 	
 }

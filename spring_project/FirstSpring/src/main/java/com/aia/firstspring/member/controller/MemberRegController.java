@@ -24,7 +24,10 @@ public class MemberRegController {
 	@RequestMapping(method = RequestMethod.POST)
 	public String memberReg(Member member, Model model) {
 		
+		System.out.println(member);
 		int resultCnt = regService.insertMember(member);
+		
+		System.out.println(member);
 		
 		model.addAttribute("resultCnt", resultCnt);
 		

@@ -18,6 +18,24 @@
 	<bean id="jdbcTemplate"
 				class="org.springframework.jdbc.core.JdbcTemplate"
 				p:dataSource-ref="dataSource" />
+				
+	<bean id="sqlSessionFactory"
+				class="org.mybatis.spring.SqlSessionFactoryBean"
+				p:dataSource-ref="dataSource"
+				p:mapperLocations="classpath:com/aia/firstspring/mybatis/mapper/*.xml"
+	/>
+	
+	<!-- SqlSessionTemplate 빈 등록 -->
+	<bean id="sqlSessionTemplate"
+				class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" ref="sqlSessionFactory"/>
+	</bean>
+	
+
+				
+				
+				
+				
 
 
 
