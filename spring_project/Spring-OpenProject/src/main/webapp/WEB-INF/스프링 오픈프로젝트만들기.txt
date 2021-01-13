@@ -1,0 +1,6 @@
+스프링 프로젝트
+
+1. 스프링 프로젝트 생성 : STS3
+   - Lagacy Project 로 생성
+   - java 1.5 -> java 1.8
+   - Maven Project : pom.xml 설정 -> java version, spring version
