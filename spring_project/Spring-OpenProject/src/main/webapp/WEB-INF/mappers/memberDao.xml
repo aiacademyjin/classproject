@@ -7,9 +7,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 	<insert id="insertMember"
-					parameterType="com.aia.op.member.domain.MemberRegRequest"
+					parameterType="com.aia.op.member.domain.Member"
 	>
-	
+		INSERT INTO member (memberid, password, membername, memberphoto)
+		 VALUES (#{memberid},#{password},#{membername},#{memberphoto})
 	</insert>
 
 

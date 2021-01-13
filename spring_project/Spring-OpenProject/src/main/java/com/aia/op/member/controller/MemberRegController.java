@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,11 +28,14 @@ public class MemberRegController {
 	@RequestMapping(method = RequestMethod.POST)
 	public String memberReg(
 			@ModelAttribute("regData") MemberRegRequest regRequest,
-			HttpServletRequest request
+			HttpServletRequest request,
+			Model model
 			) {
 		
 		System.out.println(regRequest);
-		regService.memberReg(regRequest, request);
+		int result = regService.memberReg(regRequest, request);
+		
+		model.addAttribute("result", result);
 		
 		return "member/memberRegView";
 	}
