@@ -22,6 +22,10 @@
    - Service
    - Dao
 
+4-1 회원 가입
+     - Get -> 입력폼이 화면에 표현
+       Controller, view
+
 
 
 
