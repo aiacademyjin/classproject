@@ -9,11 +9,11 @@
 				<%
 					if(session.getAttribute("loginInfo")==null){
 				%>		
-			 <a href="<c:url value="/member/loginForm.do"/>">LOGIN</a>  
+			 <a href="<c:url value="/member/login"/>">LOGIN</a>  
 			 <%
 					} else {
 			 %>
-			 <a href="<c:url value="/member/logout.jsp"/>">LOGOUT</a>
+			 <a href="<c:url value="/member/logout"/>">LOGOUT</a>
 			 <%
 					}
 			 %>			 

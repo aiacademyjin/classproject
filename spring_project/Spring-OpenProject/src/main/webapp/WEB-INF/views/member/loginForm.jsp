@@ -18,7 +18,7 @@
 		<h2 class="content_title">Login Form</h2>
 		<hr>
 		<div class="content"> 
-			<form action="<c:url value="/member/login.do"/>" method="post">
+			<form method="post">
 				<table> 
 					<tr>
 						<th><label for="userid">아이디</label></th>
