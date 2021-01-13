@@ -40,6 +40,16 @@ public class MemberRegRequest {
 	public void setUserPhoto(MultipartFile userPhoto) {
 		this.userPhoto = userPhoto;
 	}
+	
+	public Member toMember() {
+		Member member = new Member();
+		member.setMemberid(userid);
+		member.setMembername(username);
+		member.setPassword(pw);
+		
+		return member;
+	}
+	
 
 	@Override
 	public String toString() {
