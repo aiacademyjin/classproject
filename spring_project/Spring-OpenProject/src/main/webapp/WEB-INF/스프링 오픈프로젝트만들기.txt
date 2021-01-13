@@ -25,6 +25,12 @@
 4-1 회원 가입
      - Get -> 입력폼이 화면에 표현
        Controller, view
+     - post -> 사용자 입력데이터 받고 Mybatis 이용해서 insert
+     - dao interface 이용해서 자동 매퍼 생성으로 이용
+4-2 로그인
+     - GET -> 로그인 폼 Controller, view
+     - POST -> Cookie도 처리하기 위해서 request, response를 받아서 처리
+     - dao interface 이용해서 자동 매퍼 생성으로 이용
 
 
 
