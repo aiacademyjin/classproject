@@ -4,3 +4,28 @@
    - Lagacy Project 로 생성
    - java 1.5 -> java 1.8
    - Maven Project : pom.xml 설정 -> java version, spring version
+
+2. 프로젝트에 필요한 라이브러리 의존
+   - spring MVC
+   - DB 관련
+   - 파일업로드
+
+3. Spring 기본 설정
+   - DB : root-context.xml
+      1. dataSource : HikariCP
+      2. SqlSessionFactoryBean : MyBatis 설정 , Mapper 의 경로 설정
+      3. SqlSessionTemplate
+   - FileUpload : servlet-context.xml
+      MultipartResolver 등록 : 
+4. Spring MVC 모듈 이용 웹 페이지 정의
+   - Controller
+   - Service
+   - Dao
+
+
+
+
+
+
+
+
