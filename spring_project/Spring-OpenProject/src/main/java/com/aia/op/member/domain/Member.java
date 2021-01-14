@@ -1,6 +1,7 @@
 package com.aia.op.member.domain;
 
 import java.sql.Timestamp;
+import java.util.Date;
 
 public class Member {
 
@@ -57,6 +58,10 @@ public class Member {
 
 	public void setRegdate(Timestamp regdate) {
 		this.regdate = regdate;
+	}
+	
+	public Date getToDate() {
+		return new Date(this.regdate.getTime());
 	}
 	
 	public LoginInfo toLoginInfo() {

@@ -22,6 +22,7 @@ public class MemberListService {
 		
 		MemberListView listView = null;
 		
+		try {
 		// MemberDao 구현체 생성
 		dao = template.getMapper(MemberDao.class);
 		
@@ -38,6 +39,12 @@ public class MemberListService {
 		List<Member> memberList = dao.selectMemberList(startRow, cntPerPage);
 		System.out.println(memberList);
 		
+		listView = new MemberListView(pageNumber, totalMemberCount, cntPerPage, memberList, startRow, endRow);
+		
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 		return listView;
 	}
