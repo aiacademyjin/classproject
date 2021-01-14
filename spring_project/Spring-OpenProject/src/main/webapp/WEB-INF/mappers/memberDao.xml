@@ -5,28 +5,62 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.aia.op.member.dao.MemberDao">
 
-	<resultMap id="memberResult" 
-	           type="com.aia.op.member.domain.Member">
-		<id column="idx" property="idx"/>
-		<result column="memberid" property="memberid"/>
-		<result column="membername" property="membername"/>
-		<result column="password" property="password"/>
-		<result column="memberphoto" property="memberphoto"/>
-		<result column="regdate" property="regdate"/>
+	<!-- Member 타입의 resultMap : 로그인시 사용 -->
+	<resultMap id="memberResult"
+		type="com.aia.op.member.domain.Member">
+		<id column="idx" property="idx" />
+		<result column="memberid" property="memberid" />
+		<result column="membername" property="membername" />
+		<result column="password" property="password" />
+		<result column="memberphoto" property="memberphoto" />
+		<result column="regdate" property="regdate" />
 	</resultMap>
 
+	<resultMap id="memberListResult"
+						 type="com.aia.op.member.domain.Member">
+		<id column="idx" property="idx" />
+		<result column="memberid" property="memberid" />
+		<result column="membername" property="membername" />
+		<result column="memberphoto" property="memberphoto" />
+		<result column="regdate" property="regdate" />
+	</resultMap>
 
+	<!-- 회원가입 -->
 	<insert id="insertMember"
-					parameterType="com.aia.op.member.domain.Member"
-	>
-		INSERT INTO member (memberid, password, membername, memberphoto)
-		 VALUES (#{memberid},#{password},#{membername},#{memberphoto})
+		parameterType="com.aia.op.member.domain.Member">
+		INSERT INTO member
+		(memberid, password, membername, memberphoto)
+		VALUES (#{memberid},#{password},#{membername},#{memberphoto})
 	</insert>
-	
-	<select id="selectLogin" 
-					resultMap="memberResult"> 
+
+	<!-- 로그인 -->
+	<select id="selectLogin" resultMap="memberResult">
 		select * from member where memberid=#{param1} and password=#{param2}
 	</select>
+
+	<!-- 회원의 총 수 -->
+	<select id="selectTotalCount" resultType="int">
+		select count(*) from
+		member
+	</select>
+
+	<select id="selectMemberList" resultMap="memberListResult">
+
+		select * from member limit #{param1}, #{param2}
+
+	</select>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
