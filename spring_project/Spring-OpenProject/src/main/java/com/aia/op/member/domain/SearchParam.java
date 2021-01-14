@@ -14,6 +14,7 @@ public class SearchParam {
 		if(this.p<1) {
 			this.p = 1;
 		}
+		
 	}
 
 	public SearchParam() {

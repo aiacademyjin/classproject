@@ -67,6 +67,7 @@
 					<th>Member Name</th>
 					<th>Member Photo</th>
 					<th>Member RegistDate</th>
+					<th>manage</th>
 				</tr>
 				
 				<c:forEach items="${listView.memberList}" var="member">
@@ -80,6 +81,9 @@
 					<td>
 						<fmt:formatDate value="${member.regdate}" pattern="yyyy.MM.dd."/>
 					</td>
+					<td>
+						<a href="javascript:deleteMember(${member.idx});">삭제</a>
+					</td>
 				</tr>
 				</c:forEach>
 				
@@ -88,7 +92,7 @@
 			<div class="paging">
 				<c:if test="${listView.totalMemberCount>0}">
 				<c:forEach begin="1" end="${listView.totalPageCount}" var="num">
-				[ <a href="<c:url value="/member/list"/>?p=${num}" 
+				[ <a href="<c:url value="/member/list"/>?p=${num}&searchType=${param.searchType}&keyword=${param.keyword}" 
 						 class="${listView.pageNumber eq num ? 'nowpage' : ''}">${num}</a> ] 				
 				</c:forEach>
 				</c:if>
@@ -98,6 +102,26 @@
 	</div>
 
 	<%@ include file="/WEB-INF/views/include/footer.jsp"%>
+
+
+
+<script>
+
+	function deleteMember(idx){
+		
+		if(confirm('정말로 삭제하시겠습니까?')){
+			location.href = '<c:url value="/member/delete?idx="/>'+idx;
+		}   // /op/member/delete?idx
+		
+	}
+
+</script>
+
+
+
+
+
+
 
 </body>
 </html>

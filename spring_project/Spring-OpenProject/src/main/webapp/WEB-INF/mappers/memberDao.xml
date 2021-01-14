@@ -44,9 +44,28 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		member
 	</select>
 
-	<select id="selectMemberList" resultMap="memberListResult">
+	<select id="selectMemberList"
+					parameterType="map"
+					resultMap="memberListResult">
 
-		select * from member limit #{param1}, #{param2}
+		select * from member 
+		<where>
+			<if test="searchParam != null">
+				<if test="searchParam.searchType == 'id'">
+					<include refid="searchId"/>
+				</if>
+				<if test="searchParam.searchType == 'name'">
+					<include refid="searchName"/>
+				</if>
+				<if test="searchParam.searchType == 'both'">
+					<include refid="searchId"/>
+					<include refid="searchName"/>
+				</if>
+			</if>
+		</where>
+		
+		
+		limit #{index}, #{count}
 
 	</select>
 	
@@ -56,7 +75,30 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	        >
 	        
 		select count(*) from member
-		<if test="searchType == 'id'">
+		
+		<!-- where idx>0  -->
+		
+		<where>
+			<if test="searchParam.searchType == 'id'">
+				  <!-- memberid like	concat('%',#{keyword},'%') -->
+				  <include refid="searchId"/>
+			</if>
+			
+			<if test="searchParam.searchType == 'name'">
+				 <!-- membername like	concat('%',#{keyword},'%') -->
+				 <include refid="searchName"/>
+			</if>
+			
+			<if test="searchParam.searchType == 'both'">
+				 <!-- membername like	concat('%',#{keyword},'%') 				 
+				 or 
+				 memberid like	concat('%',#{keyword},'%') --> 
+				 <include refid="searchId"/>
+				 <include refid="searchName"/>
+			</if>
+		</where>
+		
+		<!-- <if test="searchType == 'id'">
 			where memberid like	concat('%',#{keyword},'%')
 		</if>
 		<if test="searchType == 'name'">
@@ -64,11 +106,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</if>
 		<if test="searchType == 'both'">
 			where membername like	concat('%',#{keyword},'%') or memberid like	concat('%',#{keyword},'%')
-		</if>
+		</if> -->
+		
 	
 	</select>
 
+	<sql id="searchId">
+		or memberid like	concat('%',#{searchParam.keyword},'%')
+	</sql>
+	
+	<sql id="searchName">
+	  or membername like	concat('%',#{searchParam.keyword},'%')
+	</sql>
+	
 
+	<delete id="deleteMemberByIdx">
+		delete from member where idx=#{idx}
+	</delete>
 
 
 
