@@ -49,6 +49,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from member limit #{param1}, #{param2}
 
 	</select>
+	
+	<select id="selectSearchMemberCount" 
+	        parameterType="com.aia.op.member.domain.SearchParam"
+	        resultType="int"
+	        >
+	        
+		select count(*) from member
+		<if test="searchType == 'id'">
+			where memberid like	concat('%',#{keyword},'%')
+		</if>
+		<if test="searchType == 'name'">
+			where membername like	concat('%',#{keyword},'%')
+		</if>
+		<if test="searchType == 'both'">
+			where membername like	concat('%',#{keyword},'%') or memberid like	concat('%',#{keyword},'%')
+		</if>
+	
+	</select>
 
 
 

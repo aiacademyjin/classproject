@@ -28,6 +28,13 @@
 		text-align: center;
 	}
 	
+	div.searchBox {
+		border: 1px solid #CCC;
+		margin: 15px 0;
+		padding: 10px 20px;
+		background-color: #EEE;
+	}
+	
 </style>
 </head>
 <body>
@@ -38,6 +45,20 @@
 		<h2 class="content_title">회원 리스트</h2>
 		<hr>
 		<div class="content"> 
+			
+			<div class="searchBox">
+				<form>
+					검색 타입
+					<select name="searchType">
+						<option value="id">아이디</option>
+						<option value="name">이름</option>
+						<option value="both">아이디+이름</option>
+					</select>		
+					검색 키워드
+					<input type="text" name="keyword">
+					<input type="submit" value="검색">		
+				</form>
+			</div>
 			
 			<table class="table">
 				<tr>
