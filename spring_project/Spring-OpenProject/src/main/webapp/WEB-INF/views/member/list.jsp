@@ -67,7 +67,7 @@
 					<th>Member Name</th>
 					<th>Member Photo</th>
 					<th>Member RegistDate</th>
-					<th>manage</th>
+					<th>Manage</th>
 				</tr>
 				
 				<c:forEach items="${listView.memberList}" var="member">
@@ -81,7 +81,8 @@
 					<td>
 						<fmt:formatDate value="${member.regdate}" pattern="yyyy.MM.dd."/>
 					</td>
-					<td>
+					<td>  
+						<a href="<c:url value="/member/edit?idx=${member.idx}"/>">수정</a> 
 						<a href="javascript:deleteMember(${member.idx});">삭제</a>
 					</td>
 				</tr>
