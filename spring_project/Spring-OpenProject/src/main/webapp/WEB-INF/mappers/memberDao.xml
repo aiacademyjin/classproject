@@ -134,6 +134,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 
+	<update id="updateMember"
+					parameterType="com.aia.op.member.domain.Member">
+	
+		update member 
+		set membername=#{membername}, 
+				password=#{password}, 
+				memberphoto=#{memberphoto}
+		where idx=#{idx}  
+	
+	</update>
+
 
 
 

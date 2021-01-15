@@ -1,5 +1,7 @@
 package com.aia.op.member.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,9 +31,16 @@ public class MemberEditController {
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public String editMember(
-			MemberEditRequest editRequest
+			MemberEditRequest editRequest,
+			HttpServletRequest request,
+			Model model
 			) {
-		System.out.println(editRequest);
+		
+		// Service -> MemberDao : update -> mapper -> int
+		
+		//System.out.println(editRequest);
+		
+		model.addAttribute("result", editService.editMember(editRequest, request));
 		
 		return "member/edit";
 	}

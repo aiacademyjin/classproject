@@ -5,6 +5,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class MemberEditRequest {
 
 	private int idx;
+	private String userid;
 	private String pw;
 	private String username;
 	private String oldPhoto;
@@ -50,12 +51,30 @@ public class MemberEditRequest {
 		this.userPhoto = userPhoto;
 	}
 
-	@Override
-	public String toString() {
-		return "MemberEditRequest [idx=" + idx + ", pw=" + pw + ", username=" + username + ", oldPhoto=" + oldPhoto
-				+ ", userPhoto=" + userPhoto.getOriginalFilename() + "]";
+	public String getUserid() {
+		return userid;
+	}
+
+	public void setUserid(String userid) {
+		this.userid = userid;
 	}
 	
+	public Member getToMember() {
+		Member member = new Member();
+		member.setIdx(idx);
+		//member.setMemberid(userid);
+		member.setMembername(username);
+		member.setPassword(pw);
+		
+		return member;
+	}
+
+	@Override
+	public String toString() {
+		return "MemberEditRequest [idx=" + idx + ", userid=" + userid + ", pw=" + pw + ", username=" + username
+				+ ", oldPhoto=" + oldPhoto + ", userPhoto=" + userPhoto.getOriginalFilename() + "]";
+	}
+
 	
 
 }
