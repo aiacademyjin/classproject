@@ -18,8 +18,9 @@
 					}
 			 %>			 
 			 </li>
-			<li> <a href="<c:url value="/member/mypage/mypage1.jsp"/>">mypage1</a>  </li>
-			<li> <a href="<c:url value="/member/mypage/mypage2.jsp"/>">mypage2</a>  </li>
+			<li> <a href="<c:url value="/mypage/mypage1"/>">mypage1</a>  </li>
+			<li> <a href="<c:url value="/mypage/mypage2"/>">mypage2</a>  </li>
+			<li> <a href="<c:url value="/mypage/mypage3"/>">mypage3</a>  </li>
 			<li> <a href="<c:url value="/member/list"/>">회원 리스트</a>  </li>
 			<li> <a href="#">방명록</a>  </li>
 		</ul>
