@@ -25,13 +25,35 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="regdate" property="regdate" />
 	</resultMap>
 
+
+
+
 	<!-- 회원가입 -->
 	<insert id="insertMember"
 		parameterType="com.aia.op.member.domain.Member">
+		
 		INSERT INTO member
+		
+		<if test="memberphoto == null">		
+		(memberid, password, membername)
+		VALUES 
+		(#{memberid},#{password},#{membername})
+		</if>
+		
+		<if test="memberphoto != null">
 		(memberid, password, membername, memberphoto)
-		VALUES (#{memberid},#{password},#{membername},#{memberphoto})
+		VALUES 
+		(#{memberid},#{password},#{membername},#{memberphoto})
+		</if>
+		
+		
+		
+		
 	</insert>
+	
+	
+	
+	
 
 	<!-- 로그인 -->
 	<select id="selectLogin" resultMap="memberResult">
