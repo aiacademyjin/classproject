@@ -1,6 +1,7 @@
 package com.aia.op.member.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -19,8 +20,22 @@ public class MemberMyPageController {
 	
 	@RequestMapping("/mypage3") // /op/mypage/mypage3
 	public String myPage3() {
+		
+		String str = "null";
+		str.charAt(1);
+		
 		return "member/mypage";
 	}
 	
+	@ExceptionHandler(NullPointerException.class)
+	public String handleNullPointerException(NullPointerException e) {
+		e.printStackTrace();
+		return "error/nullPointer";
+	}
 	
 }
+
+
+
+
+
