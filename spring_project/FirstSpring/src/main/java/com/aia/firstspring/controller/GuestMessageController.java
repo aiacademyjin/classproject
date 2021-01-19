@@ -25,6 +25,13 @@ public class GuestMessageController {
 	@RequestMapping("/message/listJson")
 	@ResponseBody
 	public GuestMessageList2 listJson() {
+		
+		List<GuestMessage2> list = new ArrayList<GuestMessage2>();
+		list.add(new GuestMessage2(1, "HI", new Date()));
+		list.add(new GuestMessage2(2, "Hello", new Date()));
+		list.add(new GuestMessage2(3, "bye", new Date()));
+		
+		
 		return getMessageList2();
 	}
 	

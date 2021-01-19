@@ -7,7 +7,6 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
 public class GuestMessage2 {
-
 	
 	private int id;
 	private String message;
@@ -17,7 +16,6 @@ public class GuestMessage2 {
 	}
 
 	public GuestMessage2(int id, String message, Date regDate) {
-		super();
 		this.id = id;
 		this.message = message;
 		this.regDate = regDate;
