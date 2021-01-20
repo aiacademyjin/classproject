@@ -70,8 +70,16 @@
 			<a href="${listJson}">${listJson}</a>
 		</li>
 		<li>
-			<c:url value="/rest/ver1/members" var="restMember"/>
+			<c:url value="/rest/ver1/members/39" var="restMember"/>
 			<a href="${restMember}">${restMember}</a>
+		</li>
+		<li>
+			<c:url value="/rest/ver1/members" var="restMembers"/>
+			<a href="${restMembers}">${restMembers}</a>
+		</li>
+		<li>
+			<c:url value="/rest/ver1/members/map" var="restMemberMap"/>
+			<a href="${restMemberMap}">${restMemberMap}</a>
 		</li>
 	</ul>
 
