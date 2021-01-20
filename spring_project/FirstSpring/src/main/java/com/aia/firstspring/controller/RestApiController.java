@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.aia.firstspring.domain.MemberRegRequest;
 import com.aia.firstspring.member.domain.Member;
 import com.aia.firstspring.member.service.MemberListService;
+import com.aia.firstspring.member.service.MemberRegService;
 import com.aia.firstspring.member.service.MemberRestService;
 
 @RestController
@@ -27,6 +28,9 @@ public class RestApiController {
 	
 	@Autowired
 	private MemberListService listService;
+	
+	@Autowired
+	private MemberRegService regService;
 
 //	@GetMapping("/{idx}") // GET  /rest/ver1/members/39
 	//@GetMapping
@@ -63,14 +67,18 @@ public class RestApiController {
 	
 	//@RequestMapping(method = RequestMethod.POST)
 	@PostMapping
-	public MemberRegRequest insertMember(
+	public String insertMember(
 			@RequestBody MemberRegRequest regRequest			
 			) {
+		
+		//String result = "N";
 
 		System.out.println(regRequest);
 		System.out.println(regRequest.getToMember());
+		
+		//regService.insertMember(regRequest.getToMember());
 			
-		return regRequest;
+		return regService.insertMember(regRequest.getToMember())>0 ? "Y" : "N";
 	}
 	
 	

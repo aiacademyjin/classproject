@@ -41,13 +41,22 @@
 				type : 'POST',
 				data : JSON.stringify(data),
 				contentType : 'application/json; charset=utf-8',
-				dataType : 'json',
+				/* dataType : 'json', */
 				async : false,
-				success : function(msg){
-					alert(msg)
+				success : function(msg){ // msg JSON -> javascript object
+					console.log(msg);
+					//alert(JSON.stringify(msg));
+					if(msg == 'Y'){
+						alert('회원가입이 저상적으로 처리되었습니다.');
+						
+					} else {
+						alert('오류가 발생했습니다. 다시 시도해주세요.');
+					}
+					
 				},
 				error : function(err){
 					console.log(err);
+					alert('오류가 발생했습니다. 다시 시도해주세요.');
 				}
 				
 			});

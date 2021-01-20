@@ -61,7 +61,7 @@ public class Member {
 	}
 	
 	public Date getToDate() { // ${member.toDate}
-		return new Date(getRegdate().getTime());
+		return getRegdate()==null ? null : new Date(getRegdate().getTime());
 	}
 
 	@Override
