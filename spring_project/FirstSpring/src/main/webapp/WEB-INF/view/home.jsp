@@ -69,6 +69,10 @@
 			<c:url value="/message/listJson" var="listJson"/>
 			<a href="${listJson}">${listJson}</a>
 		</li>
+		<li>
+			<c:url value="/rest/ver1/members" var="restMember"/>
+			<a href="${restMember}">${restMember}</a>
+		</li>
 	</ul>
 
 
