@@ -81,6 +81,10 @@
 			<c:url value="/rest/ver1/members/map" var="restMemberMap"/>
 			<a href="${restMemberMap}">${restMemberMap}</a>
 		</li>
+		<li>
+			<c:url value="/mail/simplemail" var="simplemail"/>
+			<a href="${simplemail}">${simplemail}</a>
+		</li>
 	</ul>
 
 
