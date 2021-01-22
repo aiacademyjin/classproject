@@ -4,6 +4,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.aia.firstspring.Util.Sha256;
 import com.aia.firstspring.member.dao.MemberDao;
 import com.aia.firstspring.member.dao.MemberInterfaceDao;
 import com.aia.firstspring.member.dao.MybatisMemberDao;
@@ -27,22 +28,29 @@ public class MemberRegService {
 	@Autowired
 	private MailSenderService mailSenderService; 
 	
+	@Autowired
+	private Sha256 sha256;
+	
 	
 	public int insertMember(Member member) {
 		int result = 0;
 		try {
 			dao = template.getMapper(MemberInterfaceDao.class);
-			result = dao.insertMember(member);
+			//result = dao.insertMember(member);
+			result = 1;
+			
+			System.out.println("암호화 : " + sha256.encrypt(member.getPassword()) );
+			
 			
 			String html = "<h1>아래 링크를 통해 인증해주세요."
 					+ " <a href=\"http://localhost:8080/firstspring\"> 인증하기 </a> </h1>";
 			
 			// 메일 전송
-			mailSenderService.mailSend(
-					member.getMemberid(), 
-					member.getMembername(), 
-					"[안내] 회원가입을 위한 계정 인증 안내", 
-					html);
+//			mailSenderService.mailSend(
+//					member.getMemberid(), 
+//					member.getMembername(), 
+//					"[안내] 회원가입을 위한 계정 인증 안내", 
+//					html);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
