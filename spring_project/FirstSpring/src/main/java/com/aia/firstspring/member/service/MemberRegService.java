@@ -2,6 +2,7 @@ package com.aia.firstspring.member.service;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.aia.firstspring.Util.AES256Util;
@@ -35,6 +36,9 @@ public class MemberRegService {
 	@Autowired
 	private AES256Util aes256Util; 
 	
+	@Autowired
+	private BCryptPasswordEncoder cryptPasswordEncoder; 
+	
 	
 	public int insertMember(Member member) {
 		int result = 0;
@@ -54,6 +58,14 @@ public class MemberRegService {
 			System.out.println(epw);
 			System.out.println("AES256으로 복호화된 문자열");
 			System.out.println(ppw);
+			
+			System.out.println("--------------------------");
+			System.out.println("Spring Security BCryptPasswordEncoder 이용한 암호화");
+			String securityPw = cryptPasswordEncoder.encode(member.getPassword());
+			System.out.println(securityPw);
+			System.out.println("비밀번호 비교 메소드 : matches");
+			System.out.println(cryptPasswordEncoder.matches("111", securityPw));
+			System.out.println(cryptPasswordEncoder.matches(member.getPassword(), securityPw));
 			
 			
 			String html = "<h1>아래 링크를 통해 인증해주세요."
