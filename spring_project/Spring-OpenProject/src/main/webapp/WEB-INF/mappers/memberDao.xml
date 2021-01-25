@@ -168,6 +168,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 
 
+	<select id="selectMemberByIdCount"
+					resultType="int"
+	>
+	select count(*) from member where memberid=#{id}
+	</select>
 
 
 

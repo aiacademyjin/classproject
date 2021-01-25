@@ -33,6 +33,9 @@ public interface MemberDao {
 	
 	// 회원 정보 update
 	int updateMember(Member member);
+	
+	// id 존재 유무 확인
+	int selectMemberByIdCount(String id);
 }
 
 
