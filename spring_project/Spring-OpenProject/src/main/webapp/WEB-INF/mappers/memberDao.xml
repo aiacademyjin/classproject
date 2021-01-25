@@ -30,24 +30,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- 회원가입 -->
 	<insert id="insertMember"
-		parameterType="com.aia.op.member.domain.Member">
+		parameterType="com.aia.op.member.domain.Member"
+		useGeneratedKeys="true"
+		keyProperty="idx"
+		>
 		
 		INSERT INTO member
 		
+		
+		<!-- 인증을 위해 code 컬럼 추가 -->
 		<if test="memberphoto == null">		
-		(memberid, password, membername)
+		(memberid, password, membername, code)
 		VALUES 
-		(#{memberid},#{password},#{membername})
+		(#{memberid},#{password},#{membername}, #{code})
 		</if>
 		
 		<if test="memberphoto != null">
-		(memberid, password, membername, memberphoto)
+		(memberid, password, membername, memberphoto, code)
 		VALUES 
-		(#{memberid},#{password},#{membername},#{memberphoto})
+		(#{memberid},#{password},#{membername},#{memberphoto}, #{code})
 		</if>
-		
-		
-		
 		
 	</insert>
 	

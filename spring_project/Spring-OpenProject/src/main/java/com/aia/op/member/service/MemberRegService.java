@@ -58,6 +58,15 @@ public class MemberRegService {
 			// 데이터 베이스 입력
 			dao = template.getMapper(MemberDao.class);
 			result = dao.insertMember(member);
+			
+			
+			// 메일발송 : 인증 처리를 하는 페이지 /op/member/verify?id=40&code=난수
+			
+			
+			
+			
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			// 현재 저장한 파일이 있다면??!! -> 삭제

@@ -45,7 +45,7 @@
 		<hr>
 		<div class="content">
 		
-			<form method="post" enctype="multipart/form-data">
+			<form id="regForm" method="post" enctype="multipart/form-data">
 				<table>
 					<tr>
 						<th><label for="userid">아이디(email)</label></th>
@@ -87,6 +87,24 @@
 
 	$(document).ready(function(){
 		
+		
+		$('#regForm').submit(function(){
+			
+			var chk = $('#idcheck').is(':checked');
+			
+			if(!chk){
+				alert('아이디 중복여부가 체크되어야 합니다.');
+				return false;
+			}
+			
+			
+			
+			
+		});
+		
+		
+		
+		
 		$('#userid').focusout(function(){
 			
 			var userid =  $(this).val();
@@ -95,7 +113,7 @@
 			
 			var checkBox = $('#idcheck');
 			
-			//checkBox.prop('checked', false);
+			checkBox.prop('checked', false);
 			
 			if(userid.length==0){
 				//alert('id는 필수 항목입니다.');
