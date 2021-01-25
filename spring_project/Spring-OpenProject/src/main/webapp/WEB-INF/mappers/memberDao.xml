@@ -175,6 +175,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	>
 	select count(*) from member where memberid=#{id}
 	</select>
+	
+	<select id="selectMemberByIdxVerify"
+					resultType="int"
+	>
+		select count(*) from member where idx=#{idx} and verify='Y'
+	</select>
+	
+	<update id="updateMemberVerify">
+		update member set verify='Y' where idx=#{param1} and code=#{param2}
+	</update>
 
 
 
