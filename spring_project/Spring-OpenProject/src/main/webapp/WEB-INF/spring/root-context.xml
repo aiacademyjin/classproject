@@ -8,10 +8,17 @@
 	
 	<!-- 데이터베이스 관련 설정 -->
 	<!-- dataSource -->
-	<bean id="dataSource"
+	<!-- <bean id="dataSource"
 				class="com.zaxxer.hikari.HikariDataSource"
 				p:driverClassName="com.mysql.cj.jdbc.Driver"
 				p:jdbcUrl="jdbc:mysql://localhost:3306/open?serverTimezone=UTC"
+				p:username="aia"
+				p:password="aia"
+	/> -->
+	<bean id="dataSource"
+				class="com.zaxxer.hikari.HikariDataSource"
+				p:driverClassName="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"
+				p:jdbcUrl="jdbc:log4jdbc:mysql://localhost:3306/open?serverTimezone=UTC"
 				p:username="aia"
 				p:password="aia"
 	/>
@@ -19,8 +26,8 @@
 	<bean id="sqlSessionFactory"
 				class="org.mybatis.spring.SqlSessionFactoryBean"
 				p:dataSource-ref="dataSource"
-				p:mapperLocations="/WEB-INF/mappers/*.xml"
-	/>
+				p:mapperLocations="classpath:com/aia/op/member/dao/mapper/*.xml"
+	/>  <!-- /WEB-INF/mappers/*.xml -->
 	<!-- SqlSessionTemplate 등록 -->
 	<bean id="sqlSessionTemplate"
 				class="org.mybatis.spring.SqlSessionTemplate"
