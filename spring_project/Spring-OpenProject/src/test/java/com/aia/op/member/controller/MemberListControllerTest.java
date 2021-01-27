@@ -37,8 +37,34 @@ public class MemberListControllerTest {
 	@Test
 	public void testMemberList() throws Exception {
 		
-		log.info( mockMvc.perform(MockMvcRequestBuilders.get("/member/list")).andReturn().getModelAndView().getModelMap());
+		log.info( mockMvc.perform(MockMvcRequestBuilders.get("/member/list"))
+				.andReturn()
+				.getModelAndView()
+				.getModelMap());
 		
 	}
+	
+	@Test
+	public void testReg() throws Exception {
+		
+		log.info(
+				mockMvc.perform( MockMvcRequestBuilders.post("/member/reg")
+						.param("userid", "aia.jin.202009@gmail.com")
+						.param("pw", "1111")
+						.param("username", "tester1234")
+						).andReturn().getModelAndView().getModelMap()
+				);
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

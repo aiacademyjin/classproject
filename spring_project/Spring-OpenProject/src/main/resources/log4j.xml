@@ -40,9 +40,9 @@
 		<level value="info"/>
 	</logger>
 	
-	<logger name="jdbc.resultset">
+<!-- 	<logger name="jdbc.resultset">
 		<level value="info"/>
-	</logger>
+	</logger> -->
 	
 	<logger name="jdbc.resultsettable">
 		<level value="info"/>

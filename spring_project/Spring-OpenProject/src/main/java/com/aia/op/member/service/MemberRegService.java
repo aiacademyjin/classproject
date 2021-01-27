@@ -32,7 +32,7 @@ public class MemberRegService {
 		File newFile = null;
 		String newFileName = null;
 		
-		if(!regRequest.getUserPhoto().isEmpty()) {
+		if(regRequest.getUserPhoto() != null && !regRequest.getUserPhoto().isEmpty()) {
 			// 웹 경로
 			String uploadPath = "/fileupload/member";
 			// 시스템의 실제 경로
