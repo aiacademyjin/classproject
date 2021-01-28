@@ -26,6 +26,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</resultMap>
 
 
+	<select id="selectAllMemberList"
+					resultMap="memberListResult"
+	>
+		select * from member
+	</select>
 
 
 	<!-- 회원가입 -->

@@ -13,7 +13,10 @@ import com.aia.op.member.domain.Member;
 import com.aia.op.member.domain.MemberListView;
 import com.aia.op.member.domain.SearchParam;
 
+import lombok.extern.log4j.Log4j;
+
 @Service
+@Log4j
 public class MemberListService {
 
 	private MemberDao dao;
@@ -55,6 +58,26 @@ public class MemberListService {
 		}
 
 		return listView;
+	}
+	
+	public List<Member> getListView() {
+
+		List<Member> list = null;
+
+		try {
+			// MemberDao 구현체 생성
+			dao = template.getMapper(MemberDao.class);
+
+			list = dao.selectAllMemberList();
+			//System.out.println(list);
+			log.info(list);
+
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return list;
 	}
 
 }
