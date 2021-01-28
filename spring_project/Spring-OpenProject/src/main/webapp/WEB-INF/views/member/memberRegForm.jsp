@@ -98,7 +98,7 @@
 			
 			var photoFile = $('#userPhoto');
 			
-			var file1 = photoFile[0].files;
+			var file1 = photoFile[0].files[0];
 			
 			//console.log(file1);
 			
@@ -109,6 +109,19 @@
 			formData.append("userPhoto", file1);
 			
 			console.log(formData);
+			
+			$.ajax({
+				url : '/op/member/reg',
+				type : 'post',
+				data : formData,
+				enctype : 'multipart/form-data',
+				processData : false,
+				contentType : false,
+				cache : false ,
+				success : function(data){
+					console.log(data);
+				}
+			});
 			
 			
 			

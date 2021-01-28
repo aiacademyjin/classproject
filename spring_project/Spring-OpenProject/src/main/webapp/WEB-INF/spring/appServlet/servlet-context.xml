@@ -34,7 +34,7 @@
 	<!-- 파일업로드를 위한 MultipartResolver 등록 -->
 	<beans:bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
-		p:defaultEncoding="utf-8" p:maxUploadSize="10000000" />
+		p:defaultEncoding="utf-8" p:maxUploadSize="9999999999999" />
 
 	<!-- 인터셉터 등록 : Login 체크 -->
 	<interceptors>
