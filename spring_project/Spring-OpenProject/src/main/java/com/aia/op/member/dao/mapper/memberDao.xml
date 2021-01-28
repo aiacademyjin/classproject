@@ -59,6 +59,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	
 	
+	<!-- member_count update -->
+	<update id="memberCountUpdate">
+		update member_count set membercount = membercount+1 
+	</update>
+	
 	
 	
 

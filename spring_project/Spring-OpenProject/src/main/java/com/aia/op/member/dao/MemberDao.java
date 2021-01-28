@@ -12,6 +12,9 @@ public interface MemberDao {
 	// 회원 등록
 	int insertMember(Member member);
 	
+	// 전체 회원의 수
+	int memberCountUpdate();
+	
 	// 로그인
 	Member selectLogin(String id, String pw);
 	

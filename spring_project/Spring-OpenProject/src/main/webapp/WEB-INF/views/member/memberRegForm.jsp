@@ -75,6 +75,12 @@
 					</tr>
 				</table>
 			</form>
+			
+			<div>
+			ajax로 회원 가입 <input type="button" value="회원가입" id="btnReg">
+			</div>
+			
+			
 		</div>
 	</div>
 
@@ -88,19 +94,37 @@
 	$(document).ready(function(){
 		
 		
-		$('#regForm').submit(function(){
+		$('#btnReg').click(function(){
 			
-			var chk = $('#idcheck').is(':checked');
+			var photoFile = $('#userPhoto');
 			
-			if(!chk){
-				alert('아이디 중복여부가 체크되어야 합니다.');
-				return false;
-			}
+			var file1 = photoFile[0].files;
+			
+			//console.log(file1);
+			
+			var formData = new FormData();
+			formData.append("userid", $('#userid').val());
+			formData.append("pw", $('#pw').val());
+			formData.append("username", $('#username').val());
+			formData.append("userPhoto", file1);
+			
+			console.log(formData);
 			
 			
 			
 			
 		});
+		
+		
+		
+		
+ 		$('#regForm').submit(function(){
+			var chk = $('#idcheck').is(':checked');
+			if(!chk){
+				alert('아이디 중복여부가 체크되어야 합니다.');
+				return false;
+			}
+		}); 
 		
 		
 		
