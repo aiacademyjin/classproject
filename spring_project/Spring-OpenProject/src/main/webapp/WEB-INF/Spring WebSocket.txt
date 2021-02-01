@@ -1,0 +1,25 @@
+Spring web socket 설정
+
+1. lib 세팅
+   - spring-websocket
+   - jackson-databind
+   - gson
+
+2. 채팅을 위한 Handler 클래스 정의
+    TextWebSocketHandler 상속 해서 정의
+   - 접속
+   - 퇴장
+   - 메시지 전송
+
+3. Spring-socket.xml : 설정 파일 설정 -> web.xml 에 등록
+
+	<bean id="echohandler" class="com.aia.socket.handler.EchoHandler"/>
+	
+	<websocket:handlers>
+		<websocket:mapping handler="echohandler" path="/echo"/>
+		<websocket:handshake-interceptors>
+			<bean class="org.springframework.web.socket.server.support.HttpSessionHandshakeInterceptor" />
+		</websocket:handshake-interceptors>
+		<websocket:sockjs/>
+	</websocket:handlers>
+
