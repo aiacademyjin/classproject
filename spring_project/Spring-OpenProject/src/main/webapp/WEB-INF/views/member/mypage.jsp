@@ -24,6 +24,7 @@
 		My Page 입니다.<br>
 		${loginInfo} <br>
 		<img alt="회원사진" src="<c:url value="/fileupload/member/${loginInfo.memberphoto}"/>"> 
+		<img alt="aws-s3" src="https://aiacademytestbucket.s3.ap-northeast-2.amazonaws.com//fileupload/member/2021/02/16/40948caf-39a0-47c4-8909-676c91546932_starwars1.gif">
 		</div>
 	</div>
 	<%@ include file="/WEB-INF/views/include/footer.jsp" %>

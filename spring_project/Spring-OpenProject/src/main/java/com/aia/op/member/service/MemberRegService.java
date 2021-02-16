@@ -7,7 +7,11 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 
 import org.mybatis.spring.SqlSessionTemplate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,8 +24,12 @@ import net.coobird.thumbnailator.Thumbnailator;
 @Service
 public class MemberRegService {
 
+	private static final Logger logger = LoggerFactory.getLogger(MemberRegService.class);
+	
 	private MemberDao dao;
-
+	S3Util s3 = new S3Util();
+	String bucketName = "aiacademytestbucket";
+	
 	@Autowired
 	private SqlSessionTemplate template;
 	
@@ -60,9 +68,21 @@ public class MemberRegService {
 				
 				thumnail.close();
 				
+				;
+				
+				ResponseEntity<String> img_path = new ResponseEntity<>(
+						UploadFileUtils.uploadFile(uploadPath, regRequest.getUserPhoto().getOriginalFilename(), regRequest.getUserPhoto().getBytes()),
+						HttpStatus.CREATED);
+				
+				String user_imgPath = (String) img_path.getBody();
+
+				logger.info(user_imgPath);
+				
 			} catch (IllegalStateException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 
