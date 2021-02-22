@@ -18,6 +18,9 @@ public class MemberLoginService {
 	
 	@Autowired
 	private SqlSessionTemplate template;
+	
+	@Autowired
+	private RedisService redisService;
 
 	public boolean login(
 			HttpServletRequest request,
@@ -42,6 +45,7 @@ public class MemberLoginService {
 			if(member.getVerify() == 'Y') {
 				// 현재 세션의 속성에 LoginInfo 인스턴스를 저장
 				request.getSession().setAttribute("loginInfo", member.toLoginInfo());
+				redisService.setUserInformation(member.toLoginInfo(), request.getSession());
 				loginCheck = true;		
 				// 2. uid 쿠키 처리
 				if(chk != null && chk.equals("on")) {
@@ -59,6 +63,9 @@ public class MemberLoginService {
 				loginCheck = true;
 				request.setAttribute("msg", "인증되지 않은 이메일입니다. 인증 후 로그인 해주세요. ");
 			}
+			
+			
+			
 			
 			
 		} 
