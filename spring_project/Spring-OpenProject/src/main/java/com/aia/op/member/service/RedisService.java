@@ -1,12 +1,11 @@
 package com.aia.op.member.service;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
@@ -18,9 +17,9 @@ import com.aia.op.member.domain.LoginInfo;
 @Service
 public class RedisService {
 
-	private Logger logger = LoggerFactory.getLogger(this.getClass().getName());
+	//private Logger logger = LoggerFactory.getLogger(this.getClass().getName());
 
-	private String TAG = this.getClass().getName();
+	//private String TAG = this.getClass().getName();
 
 	@Autowired
 	private RedisTemplate<String, Object> redisTemplate;
@@ -33,7 +32,7 @@ public class RedisService {
 
 	public void setUserInformation(LoginInfo loginInfo, HttpSession session ) {
 
-		logger.debug("> setUserInformation", TAG);
+		//logger.debug("> setUserInformation", TAG);
 
 		
 		redisTemplate.setKeySerializer(new StringRedisSerializer());
@@ -57,20 +56,29 @@ public class RedisService {
 
 	public LoginInfo getUserInformation(String sessionId) {
 
-		logger.debug("> getUserInformation", TAG);
+		//logger.debug("> getUserInformation", TAG);
+		
+		redisTemplate.opsForHash();
+		
 
 		String key = sessionId;
+		
+		System.out.println(redisTemplate.opsForValue().get("6DF7C1BFDD326765865F866F1155A17A"));
 
-		LoginInfo result = new LoginInfo(
-				(String) redisTemplate.opsForHash().get(key, "memberId"), 
-				(String) redisTemplate.opsForHash().get(key, "memberName"), 
-				(String) redisTemplate.opsForHash().get(key, "memberPhoto"));
+		
+		
+		
+		/*
+		 * LoginInfo result = new LoginInfo( (String)
+		 * redisTemplate.opsForHash().get(key, "memIdx"), (String)
+		 * redisTemplate.opsForHash().get(key, "memberName"), (String)
+		 * redisTemplate.opsForHash().get(key, "memberPhoto"));
+		 */
+		//logger.debug("> userId       : {}", result.getMemberid(), TAG);
+		//logger.debug("> userPassword : {}", result.getMembername(), TAG);
+		//logger.debug("> phoneNumber  : {}", result.getMemberphoto(), TAG);
 
-		logger.debug("> userId       : {}", result.getMemberid(), TAG);
-		logger.debug("> userPassword : {}", result.getMembername(), TAG);
-		logger.debug("> phoneNumber  : {}", result.getMemberphoto(), TAG);
-
-		return result;
+		return null;
 
 	}
 

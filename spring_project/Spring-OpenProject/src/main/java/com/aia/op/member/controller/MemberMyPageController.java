@@ -20,7 +20,9 @@ public class MemberMyPageController {
 	@RequestMapping("/mypage1") // /op/mypage/mypage1
 	public String myPage1(@CookieValue("JSESSIONID") String sessionId) {
 		
-		System.out.println(redisService.getUserInformation(sessionId));
+		sessionId = "ABDF3EFCF8107976E0969BB65C5904C5";
+		
+		System.out.println("redis data : "+redisService.getUserInformation(sessionId));
 		
 		return "member/mypage";
 	}

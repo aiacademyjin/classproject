@@ -68,9 +68,17 @@
 	<!-- Redis -->
 	<beans:bean id="jedisConnFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
 							p:usePool="true"
-							p:hostName="localhost"
+							p:hostName="192.168.0.35"
 							p:port="6379"	
 	/>
+<!-- 	<beans:bean id="jedisConnFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
+							p:usePool="true"
+							p:hostName="54.180.94.246"
+							p:port="6379"	
+							p:timeout="5000"
+							p:password="foobared"
+							
+	/> -->
 	<beans:bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate"
 							p:connectionFactory-ref="jedisConnFactory"
 	/>
