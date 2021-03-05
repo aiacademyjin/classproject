@@ -69,7 +69,7 @@ public class RedisService {
 		System.out.println("redis data get : ");
 
 		String key = sessionId;
-		key = "3E53F0BAC7B24653096C9B532C5AD322";
+		key = "AE0BD4E4BA0A930216239E4595A9A598";
 
 		System.out.println(">>>>>>>>>> 확인 : " + redisTemplate.opsForValue().get("backup1"));
 		System.out.println(">>>>>>>11111 --> " + redisTemplate.opsForHash());
